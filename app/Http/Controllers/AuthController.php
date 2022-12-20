@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session as FacadesSession;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Controllers\MailController;
 
 class AuthController extends Controller
 {
@@ -39,7 +40,7 @@ class AuthController extends Controller
 	{
 		date_default_timezone_set("Asia/Jakarta");
 		if ($request->input('nim') !== '9710101011') {
-			if (strtotime("now") < strtotime("2022-03-23 06:00:00") || strtotime("now") > strtotime("2022-03-23 19:00:00")) {
+			if (strtotime("now") < strtotime("2022-12-10 06:00:00") || strtotime("now") > strtotime("2022-12-30 19:00:00")) {
 				Alert::error('Gagal', 'Sesi Voting diTutup');
 				return redirect()->to('/login');
 			}

@@ -8,6 +8,7 @@ use App\Http\Controllers\VotingController;
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\KandidatController;
 use App\Http\Controllers\SaranController;
+use App\Http\Controllers\MailController;
 use App\Models\Kandidat;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -26,6 +27,9 @@ use Illuminate\Support\Facades\Route;
 
 
 // Auth::routes();
+
+Route::get('/kirim', [MailController::class, 'index']);
+Route::get('/nyoba', [MailController::class, 'nyoba']);
 
 Route::get('/register', [AuthController::class, 'register'])->name('regis');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
