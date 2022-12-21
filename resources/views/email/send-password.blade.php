@@ -1,23 +1,17 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-    
-    <title>ItsolutionStuff.com</title>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
-
 <body>
-    
     <h1>{{ $mailData['title'] }}</h1>
-    
     <p>{{ $mailData['body'] }}</p>
-    
-    
-    
-    <p></p>
-        
-    </body>
-    
-    </html>
+
+    <p>
+        Note : Mohon untuk tidak menyebarkan password ini kepada siapapun
+    </p>
+</body>
+</html>
