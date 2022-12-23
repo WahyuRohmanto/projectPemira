@@ -11,7 +11,7 @@ use App\Jobs\SendMailJob;
 
 class SendPasswordController extends Controller
 {
-	protected $password = [];
+	private $password = [];
 	
 	function queueJob() {
 		dispatch(new SendMailJob);
@@ -19,17 +19,23 @@ class SendPasswordController extends Controller
 	}
 	
 	function createUserPassword() {
+		// dd(substr(md5(microtime()),2,5));
 		DB::beginTransaction();
 		try {
 			$users = User::limit(4)->get()->sortBy('name');
 			$userCount = 0;
 			foreach($users as $user){
 				$userdata = User::find($user->id);
-				$combinedString = rtrim(substr($user->name, 1, 4));
-				$this->password[] = $combinedString.$user->nim;
+
+				#generate password
+				$randomChar = substr(md5(microtime()),2,5);//rtrim(substr($user->name, 1, 4));
+				$this->password[] = $randomChar.$user->nim;
+
+				#store data
 				$email = $userdata->email;
 				$userdata->password = bcrypt($this->password[$userCount]);
 				$userdata->save();
+
 				$userCount++;
 			}
 			$this->sendPasswordToUser(); 
@@ -43,15 +49,15 @@ class SendPasswordController extends Controller
 	{
 		$users = User::limit(4)->get()->sortBy('name'); 
 		$userCount = 0;
-		$test = [];
-		foreach ($users as $u) {
+		$unhashedUserPassword = [];
+		foreach ($users as $user) {
 			$mailData = [
-				'title' => 'Password Login Akun Pemira',
-				'body' => 'Password kamu : '.$this->password[$userCount],
+				'title' => 'Akun Pemira STTNF 2022',
+				'body' => `Username : `.$user->nim.`\nPassword kamu : `.$this->password[$userCount],
 			];
-			$test[] = $this->password[$userCount];
+			$unhashedUserPassword[] = $this->password[$userCount];
 			$userCount++;
-			Mail::to($u->email)->send(new SendPasswordToUserMail($mailData));
+			Mail::to($user->email)->send(new SendPasswordToUserMail($mailData));
 		}
 	}
 }
