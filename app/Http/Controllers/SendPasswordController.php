@@ -53,7 +53,7 @@ class SendPasswordController extends Controller
 		foreach ($users as $user) {
 			$mailData = [
 				'title' => 'Akun Pemira STTNF 2022',
-				'body' => `Username : `.$user->nim.`\nPassword kamu : `.$this->password[$userCount],
+				'body' => "Username : ".$user->nim."\nPassword kamu : ".$this->password[$userCount],
 			];
 			$unhashedUserPassword[] = $this->password[$userCount];
 			$userCount++;
