@@ -8,7 +8,8 @@
 </head>
 <body>
     <h1>{{ $mailData['title'] }}</h1>
-    <p>{{ $mailData['body'] }}</p>
+    <p>{{ $mailData['username'] }}</p>
+    <p>{{ $mailData['password'] }}</p>
 
     <p>
         Note : Mohon untuk tidak menyebarkan password ini kepada siapapun
