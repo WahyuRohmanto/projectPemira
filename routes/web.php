@@ -9,6 +9,7 @@ use App\Http\Controllers\VoteController;
 use App\Http\Controllers\KandidatController;
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\SendPasswordController;
+use App\Http\Controllers\WorkerController;
 use App\Models\Kandidat;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +28,8 @@ use Illuminate\Support\Facades\Route;
 
 
 // Auth::routes();
+Route::get('/import', [WorkerController::class, 'index']);
+Route::post('/import-data', [WorkerController::class, 'importJSON']);
 
 Route::get('/kirim', [SendPasswordController::class, 'queueJob']);
 Route::get('/nyoba', [SendPasswordController::class, 'sendPasswordToUser']);
