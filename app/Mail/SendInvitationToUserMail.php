@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendPasswordToUserMail extends Mailable
+class SendInvitationToUserMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -29,6 +29,6 @@ class SendPasswordToUserMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Testing Email aja ges')->view('email.send-password');
+        return $this->subject('Undangan Pemira 2023')->view('email.send-invitation');
     }
 }

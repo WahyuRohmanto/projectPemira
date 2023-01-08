@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/import', [WorkerController::class, 'index']);
 Route::post('/import-data', [WorkerController::class, 'importJSON']);
 
-Route::get('/kirim', [SendPasswordController::class, 'queueJob']);
+Route::get('/kirim', [SendPasswordController::class, 'createUserPassword']);
 Route::get('/nyoba', [SendPasswordController::class, 'sendPasswordToUser']);
 
 Route::get('/register', [AuthController::class, 'register'])->name('regis');
