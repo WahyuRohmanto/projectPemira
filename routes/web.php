@@ -34,7 +34,6 @@ Route::post('/import-data', [WorkerController::class, 'importJSON']);
 Route::get('/kirim', [SendInvitationController::class, 'createUserPassword']);
 Route::get('/nyoba', [SendInvitationController::class, 'sendPasswordToUser']);
 
-Route::get('/register', [AuthController::class, 'register'])->name('regis');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
