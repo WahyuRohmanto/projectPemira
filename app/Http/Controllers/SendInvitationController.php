@@ -9,7 +9,7 @@ use App\Mail\SendInvitationToUserMail;
 use App\Models\User;
 use App\Jobs\SendMailJob;
 
-class SendPasswordController extends Controller
+class SendInvitationController extends Controller
 {
 	function queueJob() {
 		dispatch(new SendMailJob);
