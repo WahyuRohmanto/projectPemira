@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "26bcdf8c40049c20c5d0ed8ea891876d",
+    "content-hash": "60fd6a2a02fb8506f4dc7f14b091e0bf",
     "packages": [
         {
             "name": "aman00323/emailchecker",
