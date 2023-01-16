@@ -3,21 +3,235 @@
   font-family: "Poppins", sans-serif;
 }
 
+/* style v2 */
+/* login */
+/* mobile screen */
+.login-container{
+  background-color: #F1E9D6;
+  width: 100%;
+  padding: 4rem 2rem;
+}
+
+.box-left{
+  display: flex;
+}
+
+.box-right{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  /* padding: 300px 20px; */
+}
+
+.t-center{
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  color: #6D9A86;
+}
+
+.clr-arrow{
+  color: #6D9A86;
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+
+.fs-label{
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.fs-title{
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  color: #F1E9D6;
+}
+
+.bg-input{
+  background-color: #6D9A86;
+  outline: none !important;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #F1E9D6;;
+  width: 100%;
+}
+
+.btn-login{
+  background-color: #F1E9D6;
+  border: none;
+  color: #6D9A86;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  outline: none;
+  font-size: 12px;
+  border-radius: 12px;
+}
+
+.btn-voting{
+  background-color:  #6D9A86;
+  border: none;
+  color: #F1E9D6;
+  padding: 8px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  cursor: pointer;
+  /* font-weight: bold; */
+  outline: none;
+  font-size: 20px;
+  border-radius: 39px;
+}
+
+.f-color{
+  color: #F1E9D6;
+}
+
+.lbl-color{
+  color: #6D9A86;
+}
+.box-login{
+  /* width: 100%; */
+  background-color: #6D9A86;
+  border: none;
+  padding: 1.5rem;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.br-radius{
+  border-radius: 36px;
+}
+
+.img-cls{
+  width:230px;height:300px;object-fit:cover;
+}
+
+.bb-title{
+  border-bottom: 3px solid #F1E9D6;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  width: 100%;
+}
+
+.p-rspp{
+  padding: 0 3rem;
+}
+
+/* medium screen */
+@media screen and(min-width: 768px) {
+  .img-cls{
+    width:250px;height:300px;object-fit:cover;
+  }
+
+  .p-container{
+    padding: 0 5rem;
+    background-color: yellow;
+  }
+}
+
+/* large screen */
+@media screen and(min-width: 992px) {
+  /* .box-right{
+    max-width: 992px;
+  } */
+
+  .login-container{
+    background-color: #F1E9D6;
+    width: 100%;
+    padding: 4rem 8rem;
+  }
+
+  .box-login{
+    width: 300px;
+  }
+}
+
+/* large screen */
+@media screen and (min-width: 992px) {
+  .login-container{
+    background-color: #F1E9D6;
+    width: 100%;
+    padding: 4rem 16rem;
+  }
+
+  .box-login{
+    width: 400px;
+  }
+}
+
+/* medium screen */
+/* @media screen and (min-width: 768px) {
+  .login-container{
+    justify-content: space-between;
+    flex-direction: row;
+    display: flex;
+  } */
+
+  /* .sub-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #F1E9D6;
+    margin-bottom: 5rem;
+  }   */
+
+  /* .logo-v2{
+    margin-top: 2rem;
+  } */
+
+  /* .box-left{
+    background-color: #6D9A86;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 50%;
+  } */
+
+  /* .box-right{
+    flex-basis: 50%;
+    padding: 80px 3rem;
+  } */
+
+  /* large screen */
+  /* @media screen and (min-width: 992px) {
+    .box-right{
+      padding: 80px 8rem;
+    }
+  }
+} */
+/* akhir login */
+/* akhir style v2 */
+
 .active {
-  color: #08679e !important;
+  color: #6D9A86 !important;
   font-weight: bold;
 }
 
 .text-color {
-  color: #08679e !important;
+  color: #6D9A86 !important;
 }
 
 .bg-color {
-  background: #08679e !important;
+  background: #6D9A86 !important;
 }
 
 .btn-primary {
-  background: #08679e !important;
+  background: #6D9A86 !important;
 }
 .btn-primary:hover {
   filter: brightness(90%);
@@ -28,17 +242,17 @@
 }
 
 .nav-link {
-  color: #08679e !important;
+  color: #6D9A86 !important;
 }
 
 .logo-icon {
-  width: 40px;
+  width: 50px;
 }
 
 #demo {
   border: 5px dashed #fff;
   color: #fff;
-  background: #08679e;
+  background: #6D9A86;
 }
 
 .step-guide {
@@ -47,7 +261,7 @@
 }
 
 .foot-path {
-  border: 2px dashed #08679e;
+  border: 2px dashed #6D9A86;
   width: 100%;
   height: 2px;
 }
@@ -71,5 +285,5 @@
 .sosmed-link {
   text-decoration: none;
   font-size: 20px;
-  color: #08679e;
+  color: #6D9A86;
 }

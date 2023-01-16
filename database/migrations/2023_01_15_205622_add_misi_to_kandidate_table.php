@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKandidatTable extends Migration
+class AddMisiToKandidateTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateKandidatTable extends Migration
      */
     public function up()
     {
-        Schema::create('kandidat', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->bigInteger('nim');
-            $table->timestamps();
+        Schema::table('kandidat', function (Blueprint $table) {
+            $table->text('misi');
+            $table->text('visi');
         });
     }
 
@@ -28,6 +26,8 @@ class CreateKandidatTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kandidat');
+        Schema::table('kandidat', function (Blueprint $table) {
+            //
+        });
     }
 }

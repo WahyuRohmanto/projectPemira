@@ -74,7 +74,10 @@ class KandidatController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        dd($request->visi);
         // dd($request->visi_misi);
+
         $kandidat = Kandidat::find($id);
         if (request()->hasFile('image')) {
             $fileName = time() . '.' . $request->file('image')->extension();
@@ -85,6 +88,8 @@ class KandidatController extends Controller
 
         $kandidat->nim = $request->nim;
         $kandidat->nama = $request->nama;
+        $kandidat->visi = $request->visi;
+        $kandidat->misi = $request->misi;
         $kandidat->visi_misi = $request->visi_misi;
 
         $kandidat->save();

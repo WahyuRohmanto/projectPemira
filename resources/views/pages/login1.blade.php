@@ -1,25 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="d-flex justify-content-center item-center ">
+<div class="d-flex justify-content-center item-center vh-100">
     {{-- left container --}}
-    <div class="login-container">
+    <div class="login-container ">
         <div class="box-left">
             <div class="sub-container">
-                <!-- <h1>KPR STTNF 2023</h1> -->
-                <!-- <a href="/">
-                    <img src="{{ asset('/img/logo-v2.png') }}" alt="" class="logo-v2" height="200" />
-                </a> -->
-            </div>
-        </div>
-        {{-- right container --}}
-        <div class="box-right vh-100">
-            <div class="box-login br-radius">
-                <p class="fs-title">KPR STTNF 2023</p>
+                <h1>KPR STTNF 2023</h1>
                 <a href="/">
                     <img src="{{ asset('/img/logo-v2.png') }}" alt="" class="logo-v2" height="200" />
                 </a>
-                <p class="fs-label f-color mt-4">Login</p>
+            </div>
+        </div>
+        {{-- right container --}}
+        <div class="box-right">
+            <div class="box-login br-radius">
+                <p class="fs-label f-color">Login</p>
 
                 {{-- form box --}}
                 <form name="login_form" action="{{ route('auth') }}" method="POST" class="av-invalid">

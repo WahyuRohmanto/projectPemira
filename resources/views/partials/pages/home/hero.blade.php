@@ -12,7 +12,7 @@
                 <div class="row g-3">
                     <div class="col-lg-4">
                         <a class="btn w-100 border-2 rounded-pill fw-bold text-white"
-                            style="background: #08679e; min-height: 44px;" href="{{ route('regis') }}">
+                            style="background: #6D9A86; min-height: 44px;" href="#">
                             <i class="fa-solid fa-book"></i> Registrasi Ulang
                         </a>
                     </div>
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="col-lg-4 order-lg-1 order-0">
-                <img src="{{ asset('/img/image-header.png') }}" class="img-fluid" />
+                <img src="{{ asset('/img/image-header-v2.png') }}" class="img-fluid" />
             </div>
         </div>
     </div>

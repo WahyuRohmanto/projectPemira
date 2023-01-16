@@ -1,69 +1,71 @@
 @extends('layouts.app')
 @section('content')
-    @php
-    $no = 1;
-    @endphp
+@php
+$no = 1;
+@endphp
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-lg modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Visi Misi</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="visi_misiKandidat"></div>
-                </div>
-            </div>
+
+<section class="container py-5 px-3 d-flex justify-content-center flex-column" width="100">
+    @foreach ($kandidat as $data_K)
+
+    <div class="container p-5">
+        <div class="p-rspp flex-column d-flex justify-content-center">
+            <h2 class="t-center">Calon
+                Pasangan {{$no ++}}</h2>
+            <span class="bb-title"></span>
         </div>
-    </div>
+        <div class="d-flex justify-content-center p-5">
+            @empty($data_K->image)
+            <img class="img-cls" src="{{url('/images/kandidat/no_foto.jpeg')}}" alt="">
+            @else
+            <img class="img-cls" src="{{ url('/images/kandidat/1647741450.png' ) }}" alt="">
+            @endif
+        </div>
+        <h3 class="px-5 lbl-color d-flex justify-content-center">{{ $data_K->nama }}</h3>
 
-    <div class="container" style="margin-top:7rem; height:100vh">
-        <div class="row">
-            @foreach ($kandidat as $data_K)
-                <div class="col-xl-6">
-                    <div class="card shadow mb-4">
-                        <!-- Card Header - Dropdown -->
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h4 class="m-0 font-weight-bold text-primary text-center w-100">Kandidat {{ $no++ }}
-                            </h4>
-                        </div>
-                        <!-- Card Body -->
-                        <div class="card-body">
-                            <div class="pt-4 pb-2 d-flex flex-row align-items-center justify-content-center">
-                                <img class="img-fluid" style="width:250px;height:300px;object-fit:cover;"
-                                    src="{{ $data_K->image == null ? 'https://dummyimage.com/250x300/000/fff' : '/images/kandidat/' . $data_K->image }}"
-                                    alt="">
-                            </div>
-                            <div class="d-flex flex-row align-items-center justify-content-center">
-                                <h3>{{ $data_K->nama }}</h3>
-                            </div>
-                            <div class="dropdown-divider"></div>
-                            <div class="mt-4 text-center small">
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal" onclick="visiMisi('{!! $data_K->visi_misi !!}')">
-                                    <i class="fa fa-cogs"></i> Visi & Misi
-                                </button>
-                                <form action="{{ route('vote') }}" method="post" class="d-inline">
-                                    @csrf
-                                    @method('PATCH')
-                                    <input type="hidden" name="id_kandidat" value="{{ $data_K->id }}">
-                                    <button type="submit" class="btn btn-success"><i class="fa fa-vote-yea"></i>
-                                        Voting</button>
-                                </form>
-                            </div>
-                        </div>
+        {{-- accordion --}}
+        <div class="accordion pt-5" id="accordionExample">
+            <div class="accordion-item px-5">
+                <div class="border-bottom border-3 pb-3" id="headingOne">
+                    <a class="border-0 outline-none btn p-0" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        <h3 class="lbl-color">Visi</h3>
+                    </a>
+                </div>
+                <div id="collapseOne" class="show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="py-3">
+                        {{$data_K->visi}}
                     </div>
                 </div>
-            @endforeach
+            </div>
+            <div class="accordion-item px-5">
+                <div class="border-bottom border-3 pb-3 pt-2" id="headingTwo">
+                    <a class="border-0  btn p-0" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                        <h3 class="lbl-color">Misi</h3>
+                    </a>
+                </div>
+                <div id="collapseTwo" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="py-3">
+                        {{$data_K->misi}}
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center pt-4">
+                <form action="{{ route('vote') }}" method="post">
+                    @csrf
+                    @method('PATCH')
+                    <input type="hidden" name="id_kandidat" value="{{ $data_K->id }}">
+                    <button type="submit" class="btn-voting">
+                        Voting</button>
+                </form>
+            </div>
         </div>
-        @push('kandidat')
-            <script>
-                const visiMisi = (visi_misi) => {
-                    $("#visi_misiKandidat").html('');
-                    $("#visi_misiKandidat").html(visi_misi);
-                }
-            </script>
-        @endpush
-    @endsection
+        {{-- end accordion --}}
+    </div>
+
+    @endforeach
+</section>
+
+@include('partials.footer')
+@endsection
