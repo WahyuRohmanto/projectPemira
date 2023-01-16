@@ -32,7 +32,7 @@ Route::get('/import', [WorkerController::class, 'index']);
 Route::post('/import-data', [WorkerController::class, 'importJSON']);
 
 Route::get('/kirim', [SendInvitationController::class, 'createUserPassword']);
-Route::get('/nyoba', [SendInvitationController::class, 'sendPasswordToUser']);
+Route::get('/nyoba', [SendInvitationController::class, 'queueJob']);
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
@@ -47,4 +47,11 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/voting', [VotingController::class, 'index']);
     Route::get('/saran', [SaranController::class, 'index']);
     Route::resource('/kandidat', KandidatController::class);
+});
+Route::get('/trigger/{data}', function ($data) {
+    echo "<p>You have sent $data.</p>";
+    event(new App\Events\GetLiveCountEvent($data));
+});
+Route::get('/test', function () {
+    return view('pages.test');
 });
