@@ -15,7 +15,7 @@ function urlContains($contains)
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <title>PEMIRA STTT NF 2021 - 2022</title>
+    <title>PEMIRA STTT NF 2022 - 2023</title>
     <link rel="icon" href="{{ asset('/img/favicon.ico') }}" />
 
     <!---- Data Table  --->
