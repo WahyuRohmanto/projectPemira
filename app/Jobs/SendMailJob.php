@@ -33,6 +33,12 @@ class SendMailJob implements ShouldQueue
     public function handle()
     {
         // dd($this->sendEmail);
-        $this->sendEmail->createUserPassword();
+        $this->sendEmail->sendInvitation();
+        // $s = [];
+        // $n = 1000000;
+        // for ($i=0; $i < $n; $i++) { 
+        //     $s[] = $i;
+        //     echo $s[$i];
+        // }
     }
 }
