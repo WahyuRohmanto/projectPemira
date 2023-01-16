@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 class="bg-primary p-4 text-white">{{ $mailData['title'] }}</h1>
+    <h1 style="background:#6D9A86;color:white;padding:10px">{{ $mailData['title'] }}</h1>
     {{-- <p>{{ $mailData['body'] }}</p> --}}
 
     <p>
@@ -21,9 +21,9 @@
         <br>
         Hari/Tanggal : Selasa, 20 Januari 2021
         <br>
-        Waktu: Pukul 14.00-16.00
+        Waktu : Pukul 14.00-16.00
         <br>
-        Tempat: Ruang Rapat A, Gedung B, Kampus STT Terpadu Nurul Fikri
+        Tempat : Ruang Rapat A, Gedung B, Kampus STT Terpadu Nurul Fikri
         <br>
         <br>
         Pemilihan Presma dan Wapresma merupakan momen penting bagi mahasiswa STT Terpadu Nurul Fikri karena Presma dan Wapresma akan menjadi wakil mahasiswa dalam menyelesaikan masalah-masalah yang dihadapi oleh mahasiswa serta mewakili aspirasi mahasiswa di tingkat universitas maupun di tingkat nasional. 

@@ -12,16 +12,16 @@ use App\Jobs\SendMailJob;
 class SendInvitationController extends Controller
 {
 	function queueJob() {
-		dispatch(new SendMailJob);
-		// return redirect('login');
+		SendMailJob::dispatch();
+		return redirect('login');
 	}
 	
-	function createUserPassword() 
+	function sendInvitation() 
 	{
 		$userData = User::limit(3)->get();
 		foreach ($userData as $key => $user) {
 			$mailData = [
-				'title' => "Akun Pemira STTNF 2023",
+				'title' => "Pemira STTNF 2023",
 				// 'body' => "Username",
 			];
 			Mail::to($user->email)->send(new SendInvitationToUserMail($mailData));
