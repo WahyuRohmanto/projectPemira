@@ -1,17 +1,17 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MahasiswaController;
-use App\Http\Controllers\VotingController;
-use App\Http\Controllers\VoteController;
-use App\Http\Controllers\KandidatController;
-use App\Http\Controllers\SaranController;
-use App\Http\Controllers\SendInvitationController;
-use App\Http\Controllers\WorkerController;
-use App\Models\Kandidat;
-use App\Models\User;
+use App\Http\Controllers\{AdminController, 
+    AuthController, 
+    HomeController, 
+    MahasiswaController,
+    VotingController,
+    VoteController,
+    KandidatController,
+    SaranController,
+    SendInvitationController,
+    WorkerController
+};
+use App\Models\{Kandidat, User};
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,10 +27,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Auth::routes();
-Route::get('/import', [WorkerController::class, 'index']);
-Route::post('/import-data', [WorkerController::class, 'importJSON']);
-
 Route::get('/kirim', [SendInvitationController::class, 'createUserPassword']);
 Route::get('/nyoba', [SendInvitationController::class, 'queueJob']);
 
@@ -38,9 +34,17 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/voting', [VoteController::class, 'index'])->middleware('auth');
-Route::patch('/voting', [VoteController::class, 'vote'])->middleware('auth')->name('vote');
-Route::put('/saran', [SaranController::class, 'store'])->middleware('auth')->name('saran');
+Route::get('/live-count', function(){
+    return view('pages.live-count');
+});
+
+Route::middleware('auth')->group(function(){
+    Route::get('/voting', [VoteController::class, 'index']);
+    Route::patch('/voting', [VoteController::class, 'vote'])->name('vote');
+    Route::put('/saran', [SaranController::class, 'store'])->name('saran');
+});
+
+# admin routes
 Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/', [AdminController::class, 'index']);
     Route::resource('/mahasiswa', MahasiswaController::class);
