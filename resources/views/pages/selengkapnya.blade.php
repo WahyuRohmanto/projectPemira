@@ -66,12 +66,7 @@ $no = 1;
 
     @endforeach
 
-
 </section>
-<div class="d-flex justify-content-center">
-    <a href="{{route('selengkapnya.selengkapnya')}}" style="width: 18rem;" type="submit" class="btn-voting">
-        Selengkapnya</a>
-</div>
 
 @include('partials.footer')
 @endsection

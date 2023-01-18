@@ -9,7 +9,7 @@ use App\Http\Controllers\VoteController;
 use App\Http\Controllers\KandidatController;
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\SendInvitationController;
-use App\Http\Controllers\WorkerController;
+use App\Http\Controllers\VisiMisiController;
 use App\Models\Kandidat;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -40,6 +40,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/voting', [VoteController::class, 'index'])->middleware('auth');
 Route::patch('/voting', [VoteController::class, 'vote'])->middleware('auth')->name('vote');
+
+Route::get('/selengkapnya', [VisiMisiController::class, 'selengkapnya'])->middleware('auth')->name('selengkapnya.selengkapnya');
+
 Route::put('/saran', [SaranController::class, 'store'])->middleware('auth')->name('saran');
 Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/', [AdminController::class, 'index']);
