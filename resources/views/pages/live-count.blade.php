@@ -29,6 +29,10 @@
   </div>
 </section>
 @endsection
+<script src="{{ asset('js/app.js') }}"></script> 
+<script>
+  window.Echo.channel('EventTriggered').listen('.GetLiveCountEvent', (e) => {    console.log(e);  });
+</script>
 @push('scripts')
 <script>
   $(document).ready(function(){
@@ -40,7 +44,7 @@
         const dataJumlahSuara = [];
         const namaKandidat = [];
         
-        console.log(parsedData);
+        // console.log(parsedData);
         parsedData.forEach(data => {
           dataJumlahSuara.push(data.jumlah_suara);
           namaKandidat.push(data.nama_kandidat);
