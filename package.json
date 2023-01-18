@@ -26,6 +26,8 @@
         "url-loader": "^4.1.1"
     },
     "dependencies": {
-        "aos": "^2.3.4"
+        "aos": "^2.3.4",
+        "laravel-echo": "^1.14.2",
+        "pusher-js": "^8.0.0"
     }
 }
