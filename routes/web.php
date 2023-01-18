@@ -28,18 +28,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/kirim', [SendInvitationController::class, 'createUserPassword']);
 Route::get('/nyoba', [SendInvitationController::class, 'queueJob']);
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/', [HomeController::class, 'index']);
+
+#livecount
 Route::get('/live-count', function(){
     return view('pages.live-count');
 });
 Route::get('/live_count', [LiveCountController::class, 'liveCount']);
+Route::get('/livecount', function () {
+    event(new App\Events\GetLiveCountEvent());
+});
 
+#authenticated routes
 Route::middleware('auth')->group(function(){
     Route::get('/voting', [VoteController::class, 'index']);
     Route::patch('/voting', [VoteController::class, 'vote'])->name('vote');
@@ -53,11 +58,4 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/voting', [VotingController::class, 'index']);
     Route::get('/saran', [SaranController::class, 'index']);
     Route::resource('/kandidat', KandidatController::class);
-});
-Route::get('/trigger/{data}', function ($data) {
-    echo "<p>You have sent $data.</p>";
-    event(new App\Events\GetLiveCountEvent($data));
-});
-Route::get('/test', function () {
-    return view('pages.test');
 });

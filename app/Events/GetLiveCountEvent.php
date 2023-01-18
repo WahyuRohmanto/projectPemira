@@ -9,20 +9,22 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use App\Http\Controllers\LiveCountController;
 
 class GetLiveCountEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    private $liveCount;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct()
     {
-        $this->data = $data;
-        echo "<p>HAII, $data udah dibikin neh</p>";
+        $this->liveCount = new LiveCountController();
+        echo $this->liveCount->liveCount();
     }
 
     /**
