@@ -10,7 +10,7 @@ use App\Http\Controllers\{
     KandidatController,
     SaranController,
     SendInvitationController,
-    WorkerController
+    LiveCountController
 };
 use App\Models\{Kandidat, User};
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +38,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/live-count', function(){
     return view('pages.live-count');
 });
+Route::get('/live_count', [LiveCountController::class, 'liveCount']);
 
 Route::middleware('auth')->group(function(){
     Route::get('/voting', [VoteController::class, 'index']);
