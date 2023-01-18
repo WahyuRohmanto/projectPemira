@@ -39,7 +39,19 @@ class KandidatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kandidat = new Kandidat();
+        $fileName = time() . '.' . $request->file('image')->extension();
+        $request->file('image')->move(public_path('images/kandidat/'), $fileName);
+        $kandidat->image = $fileName;
+
+        $kandidat->nim = $request->nim;
+        $kandidat->nama = $request->nama;
+        $kandidat->visi_misi = $request->visi_misi;
+
+        $kandidat->save();
+
+        Alert::success('Berhasil', 'Data Berhasil Ditambah');
+        return redirect('admin/kandidat');
     }
 
     /**
