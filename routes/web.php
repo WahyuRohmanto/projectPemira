@@ -33,7 +33,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/', [HomeController::class, 'index']);
 
 #livecount
@@ -47,6 +46,7 @@ Route::get('/livecount', function () {
 
 #authenticated routes
 Route::middleware('auth')->group(function(){
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/voting', [VoteController::class, 'index']);
     Route::patch('/voting', [VoteController::class, 'vote'])->name('vote');
     Route::put('/saran', [SaranController::class, 'store'])->name('saran');
