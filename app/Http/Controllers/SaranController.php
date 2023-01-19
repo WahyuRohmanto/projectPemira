@@ -16,7 +16,6 @@ class SaranController extends Controller
 
     public function store(Request $request)
     {
-
         $saran = new Saran;
         $saran->name = $request->name;
         $saran->nim = $request->nim;

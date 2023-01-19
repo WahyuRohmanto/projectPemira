@@ -10,6 +10,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class VotingController extends Controller
 {
+    private $response = [];
+
     public function index()
     {
         $data = Vote::with(['user', 'kandidat'])->get();
@@ -22,18 +24,24 @@ class VotingController extends Controller
         if (Auth::check()) {
             $cek_user = Vote::where('id_user', Auth::user()->id)->first();
             if ($cek_user !== null) {
-                $this->response['status'] = 'Failed';
-                $this->response['message'] = 'Failed Vote Because you has voted';
+                $this->response = [
+                    'status' => 'Success',
+                    'message' => 'Failed because you have already vote',
+                ];
                 return response($this->response, 400);
             } else {
                 Vote::create(['id_kandidat' => $request->input('id_kandidat'), 'id_user' => Auth::user()->id]);
-                $this->response['status'] = 'Success';
-                $this->response['message'] = 'Success Voted';
+                $this->response = [
+                    'status' => 'Success',
+                    'message' => 'Success voted',
+                ];
                 return response($this->response, 200);
             }
         } else {
-            $this->response['status'] = 'Failed';
-            $this->response['message'] = 'You are not login';
+            $this->response = [
+                'status' => 'Failed',
+                'message' => 'You are not login',
+            ];
             return response($this->response, 500);
         }
     }
@@ -42,9 +50,11 @@ class VotingController extends Controller
     {
         $data = DB::select('SELECT COUNT(id_kandidat) AS jumlah_suara, id_kandidat FROM vote GROUP BY id_kandidat');
 
-        $this->response['status'] = 'Success';
-        $this->response['data'] = $data;
-        $this->response['message'] = 'Success Get Data Voting';
+        $this->response = [
+            'status' => 'Success',
+            'data' => $data,
+            'message' => 'Success Get Data Voting',
+        ];
 
         return response($this->response, 200);
     }

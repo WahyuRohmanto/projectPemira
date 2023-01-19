@@ -227,12 +227,7 @@ $no = 1;
         $("#visi").val(visi);
         $("#misi").val(misi);
         // $("#visi_misi-kandidat").val(visi_misi);
-        $('#summernote').summernote('code', visi_misi);
+        $('#summernote_edit').summernote('code', visi_misi);
     }
-    // $(document).ready(function() {
-        //     $('#summernote').summernote({
-            //         height: 400
-            //     });
-            // });
         </script>
         @endsection

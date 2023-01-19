@@ -23,15 +23,18 @@ class DPTController extends Controller
     {
         $nim = $request->input('nim');
         $data = User::where('nim', $nim)->first();
-        if (is_null($data)) {
-            $this->response['status'] = 'Failed';
-            $this->response['data'] = 'Not Found';
-            $this->response['message'] = 'Data Not Found';
+        if (empty($data)) {
+            $this->response = [
+                'status' => 'Failed',
+                'message' => 'Data Not Found',
+            ];
             return response($this->response, 404);
         } else {
-            $this->response['status'] = 'Success';
-            $this->response['data'] = $data;
-            $this->response['message'] = 'Data Found';
+            $this->response = [
+                'status' => 'Success',
+                'data' => $data,
+                'message' => 'Data Found',
+            ];
             return response($this->response, 200);
         }
     }

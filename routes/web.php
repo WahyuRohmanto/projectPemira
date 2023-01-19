@@ -1,16 +1,18 @@
 <?php
 use App\Http\Controllers\{
-    AdminController, 
+    VoteController,
     AuthController, 
     HomeController, 
-    MahasiswaController,
-    VotingController,
-    VoteController,
-    KandidatController,
     SaranController,
     SendInvitationController,
     LiveCountController,
     VisiMisiController,
+};
+use App\Http\Controllers\Admin\{
+    AdminController, 
+    MahasiswaController,
+    VotingController,
+    KandidatController,
 };
 use App\Models\{Kandidat, User};
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +30,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/nyoba', [SendInvitationController::class, 'queueJob']);
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
@@ -49,11 +50,12 @@ Route::middleware('auth')->group(function(){
     Route::get('/voting', [VoteController::class, 'index']);
     Route::patch('/voting', [VoteController::class, 'vote'])->name('vote');
     Route::put('/saran', [SaranController::class, 'store'])->name('saran');
-    Route::get('/selengkapnya', [VisiMisiController::class, 'selengkapnya'])->middleware('auth')->name('selengkapnya.selengkapnya');
+    Route::get('/selengkapnya', [VisiMisiController::class, 'selengkapnya'])->name('selengkapnya.selengkapnya');
 });
 
 # admin routes
 Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/send-invitation', [SendInvitationController::class, 'queueJob']);
     Route::get('/', [AdminController::class, 'index']);
     Route::resource('/mahasiswa', MahasiswaController::class);
     Route::get('/voting', [VotingController::class, 'index']);
