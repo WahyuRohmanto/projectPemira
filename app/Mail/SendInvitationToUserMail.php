@@ -7,19 +7,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class RegisMail extends Mailable
+class SendInvitationToUserMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $details;
+    public $mailData;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($mailData)
     {
-        $this->details = $details;
+        $this->mailData = $mailData;
     }
 
     /**
@@ -29,6 +29,6 @@ class RegisMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Registrasi Pemira Berhasil')->view('email.regis');
+        return $this->subject('Undangan Pemira 2023')->view('email.send-invitation');
     }
 }

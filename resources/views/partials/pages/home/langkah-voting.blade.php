@@ -5,7 +5,7 @@
             <div class="col-lg-2 text-center step d-flex align-items-center p-0">
                 <div class="card step-guide h-100 border-0">
                     <div class="card-body p-0">
-                        <img src="{{ asset('/img/Mobile login-pana.png') }}" class="img-guide  w-100" />
+                        <img src="{{ asset('/img/Mobile-register.svg') }}" class="img-guide  w-100" />
                         <h4 class="text-color mt-2 fw-bold">Daftar Ulang</h4>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
             <div class="col-lg-2 text-center step d-flex align-items-center p-0">
                 <div class="card step-guide border-0">
                     <div class="card-body p-0">
-                        <img src="{{ asset('/img/Reset password-bro.png') }}" class="img-guide w-100" />
+                        <img src="{{ asset('/img/Mobile-login.svg') }}" class="img-guide w-100" />
                         <h4 class="text-color mt-2 fw-bold">Login</h4>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
             <div class="col-lg-2 text-center step d-flex align-items-center p-0">
                 <div class="card step-guide border-0">
                     <div class="card-body p-0">
-                        <img src="{{ asset('/img/Voting-bro.png') }}" class="img-guide w-100" />
+                        <img src="{{ asset('/img/voting-gasken.svg') }}" class="img-guide w-100" />
                         <h4 class="text-color mt-2 fw-bold">Voting</h4>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
             <div class="col-lg-2 text-center step p-0 d-flex align-items-center">
                 <div class="card step-guide border-0">
                     <div class="card-body p-0">
-                        <img src="{{ asset('/img/Done-pana.png') }}" class="img-guide w-100" />
+                        <img src="{{ asset('/img/selesai.svg') }}" class="img-guide w-100" />
                         <h4 class="text-color mt-2 fw-bold">Selesai</h4>
                     </div>
                 </div>

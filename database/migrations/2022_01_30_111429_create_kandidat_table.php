@@ -17,7 +17,6 @@ class CreateKandidatTable extends Migration
             $table->id();
             $table->string('nama');
             $table->bigInteger('nim');
-            $table->text('visi_misi');
             $table->timestamps();
         });
     }

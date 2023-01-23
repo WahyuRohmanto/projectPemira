@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Kandidat;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 use File;
@@ -39,7 +40,19 @@ class KandidatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kandidat = new Kandidat();
+        $fileName = time() . '.' . $request->file('image')->extension();
+        $request->file('image')->move(public_path('images/kandidat/'), $fileName);
+        $kandidat->image = $fileName;
+
+        $kandidat->nim = $request->nim;
+        $kandidat->nama = $request->nama;
+        $kandidat->visi_misi = $request->visi_misi;
+
+        $kandidat->save();
+
+        Alert::success('Berhasil', 'Data Berhasil Ditambah');
+        return redirect('admin/kandidat');
     }
 
     /**
@@ -74,7 +87,10 @@ class KandidatController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        dd($request->visi);
         // dd($request->visi_misi);
+
         $kandidat = Kandidat::find($id);
         if (request()->hasFile('image')) {
             $fileName = time() . '.' . $request->file('image')->extension();
@@ -85,6 +101,8 @@ class KandidatController extends Controller
 
         $kandidat->nim = $request->nim;
         $kandidat->nama = $request->nama;
+        $kandidat->visi = $request->visi;
+        $kandidat->misi = $request->misi;
         $kandidat->visi_misi = $request->visi_misi;
 
         $kandidat->save();
