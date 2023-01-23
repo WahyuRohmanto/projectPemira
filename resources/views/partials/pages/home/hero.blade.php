@@ -11,12 +11,6 @@
                 </p>
                 <div class="row g-3">
                     <div class="col-lg-4">
-                        <a class="btn w-100 border-2 rounded-pill fw-bold text-white"
-                            style="background: #6D9A86; min-height: 44px;" href="#">
-                            <i class="fa-solid fa-book"></i> Registrasi Ulang
-                        </a>
-                    </div>
-                    <div class="col-lg-4">
                         <a href="https://youtu.be/UpPklv4zLfc" target="_blank"
                             class="btn border w-100 border-2 rounded-pill fw-bold text-color" style="min-height: 44px;"
                             href="#">

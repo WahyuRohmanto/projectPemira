@@ -17,7 +17,7 @@ class AuthController extends Controller
 		return view('pages.login');
 	}
 
-	public function logout()
+	public function logout()	
 	{
 		FacadesSession::flush();
 		
@@ -45,7 +45,7 @@ class AuthController extends Controller
 			if (Auth::user()->hasRole('admin')) {
 				return redirect()->to('/admin');
 			} else {
-				return redirect()->to('/voting');
+				return redirect()->to('/test');
 			}
 		} else {
 			Alert::error('Gagal', 'NIM & Password Salah');

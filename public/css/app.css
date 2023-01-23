@@ -12,6 +12,29 @@
   padding: 4rem 2rem;
 }
 
+.vote-btn {
+  background-color: #353C44 !important;
+  color: #fff !important;
+  margin-left: 10px;
+  padding: 7px 40px !important;
+  border: #353C44 solid;
+}
+
+.visi-btn {
+  color: #fff !important;
+  margin-left: 10px;
+  padding: 7px 30px !important;
+  border: #6D9A86 0.5px !important;
+}
+
+.vote-btn:hover{
+  border: black solid 0.5px;
+  background-color: green !important;
+  color: #fff !important;
+  transition: 500ms;
+
+}
+
 .box-left{
   display: flex;
 }
@@ -22,6 +45,28 @@
   align-items: center;
   display: flex;
   /* padding: 300px 20px; */
+}
+
+.co {
+  padding: 15px 10px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 15px;
+  background-color: #6D9A86;
+  border: solid #6D9A86;
+}
+
+.co:hover{
+  background-color: #F1E9D6 ;
+  border: solid #6D9A86;
+  color: #6D9A86 ;
+  transition: 200ms;
+}
+
+.choice {
+  text-decoration: none;
+  background-color: none;
+  margin-top: 25px;
 }
 
 .t-center{
@@ -287,3 +332,36 @@
   font-size: 20px;
   color: #6D9A86;
 }
+
+.vote{
+  background-color:#F1E9D6 ;
+  width: 50rem;
+}
+
+.card-name{
+ background-color: #6D9A86;
+ width: 25rem;
+ position: absolute;
+ left: 50px;
+ border-radius: 100px;
+ z-index: 1;
+ top: -50px;
+ box-shadow: 7px 7px 17px 1px rgba(0,0,0,0.34);
+-webkit-box-shadow: 7px 7px 17px 1px rgba(0,0,0,0.34);
+-moz-box-shadow: 7px 7px 17px 1px rgba(0,0,0,0.34);
+}
+
+.card-name2{
+  background-color: #F1E9D6;
+  border-radius: 20px;
+}
+
+.foto{
+  box-shadow: -1px 2px 14px 9px rgba(0,0,0,0.17);
+-webkit-box-shadow: -1px 2px 14px 9px rgba(0,0,0,0.17);
+-moz-box-shadow: -1px 2px 14px 9px rgba(0,0,0,0.17);
+}
+
+
+
+

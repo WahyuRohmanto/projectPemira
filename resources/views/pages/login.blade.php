@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="d-flex justify-content-center item-center ">
     {{-- left container --}}
