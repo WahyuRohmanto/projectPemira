@@ -33,7 +33,7 @@ function urlContains($contains)
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="sweetalert2.min.css">
+    {{-- <link rel="stylesheet" href="sweetalert2.min.css"> --}}
 
     <!-- JQuery --->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"

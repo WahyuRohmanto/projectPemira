@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\DPTController;
 use App\Http\Controllers\RegisFromNimController;
-use App\Http\Controllers\VotingController;
+use App\Http\Controllers\Admin\VotingController;
+use App\Http\Controllers\LiveCountController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,5 +23,6 @@ Route::post('/checkNim', [RegisFromNimController::class, 'check'])->name('check-
 Route::post('/regis', [RegisFromNimController::class, 'regis'])->name('regis');
 Route::get('/countRegis', [RegisFromNimController::class, 'countRegis'])->name('count-regis');
 Route::put('/voting', [VotingController::class, 'vote'])->name('voting');
-Route::get('/countVoting', [VotingController::class, 'countVoting'])->name('count-voting');
+// Route::get('/countVoting', [VotingController::class, 'countVoting'])->name('count-voting');
+Route::get('/live_count', [LiveCountController::class, 'liveCount'])->name('live-count');
 Route::post('/cekDPT', [DPTController::class, 'index'])->name('cek-dpt');

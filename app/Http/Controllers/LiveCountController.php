@@ -7,10 +7,17 @@ use DB;
 
 class LiveCountController extends Controller
 {
-    public function index()
-    {
-        return view('pages.live-count');
-    }
+    // public function liveCountUserHasVote()
+    // {
+    //     $regis = DB::select('SELECT COUNT(status) AS jumlah, tahun FROM users WHERE status=1 GROUP BY tahun');
+    //     $no_regis = DB::select('SELECT COUNT(status) AS jumlah, tahun FROM users WHERE status=0 GROUP BY tahun');
+
+    //     $this
+    //     $this->response['status'] = 'Success';
+    //     $this->response['data'] = ['regis' => $regis, 'no_regis' => $no_regis];
+    //     $this->response['message'] = 'All Data Registered';
+    //     return response($this->response, 200);
+    // }
 
     public function liveCount()
     {
