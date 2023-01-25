@@ -30,13 +30,28 @@ $no = 1;
                         
                         @csrf
                         @method('PUT')
-                        <div class="mb-3">
-                            <label for="nim" class="form-label">NIM</label>
-                            <input type="text" id="nim-kandidat" class="form-control" name="nim" required>
+                        <div class="row">
+                            <label for="" class="form-label fw-bold">Presma</label>
+                            <div class="mb-3 col-md-6">
+                                <label for="formedit_nim_presma" class="form-label">NIM</label>
+                                <input type="text" id="formedit_nim_presma" class="form-control" onkeyup="searchDataPresma()" name="nim_presma" required>
+                                {{-- <button class="btn btn-success" type="button">Cek</button> --}}
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="nama" class="form-label">Nama</label>
+                                <input type="text" id="formedit_nama_presma" class="form-control" name="nama_presma" readonly>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama</label>
-                            <input type="text" id="nama-kandidat" class="form-control" name="nama" required>
+                        <div class="row">
+                            <label for="" class="form-label fw-bold">Wapresma</label>
+                            <div class="mb-3 col-md-6">
+                                <label for="formedit_nim_wapresma" class="form-label">NIM</label>
+                                <input type="text" id="formedit_nim_wapresma" onkeyup="searchDataWapresma()" class="form-control" name="nim_wapresma" required>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="nama" class="form-label">Nama</label>
+                                <input type="text" id="formedit_nama_wapresma" class="form-control" name="nama_wapresma" readonly>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="visi_misi" class="form-label">Visi & Misi</label>
@@ -71,26 +86,26 @@ $no = 1;
                         
                         @csrf
                         <div class="row">
-                            <label for="nim" class="form-label fw-bold">Presma</label>
+                            <label for="" class="form-label fw-bold">Presma</label>
                             <div class="mb-3 col-md-6">
-                                <label for="nim" class="form-label">NIM</label>
-                                <input type="text" id="formadd_nim_presma"class="form-control" onkeyup="searchDataPresma()" name="nim" required>
+                                <label for="formadd_nim_presma" class="form-label">NIM</label>
+                                <input type="text" id="formadd_nim_presma"class="form-control" onkeyup="searchDataPresma()" name="nim_presma" required>
                                 {{-- <button class="btn btn-success" type="button">Cek</button> --}}
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="nama" class="form-label">Nama</label>
-                                <input type="text" id="formadd_nama_presma" class="form-control" name="nama" readonly>
+                                <input type="text" id="formadd_nama_presma" class="form-control" name="nama_presma" readonly>
                             </div>
                         </div>
                         <div class="row">
-                            <label for="nim" class="form-label fw-bold">Wapresma</label>
+                            <label for="" class="form-label fw-bold">Wapresma</label>
                             <div class="mb-3 col-md-6">
-                                <label for="nim" class="form-label">NIM</label>
-                                <input type="text" id="formadd_nim_wapresma" onkeyup="searchDataWapresma()" class="form-control" name="nim" required>
+                                <label for="formadd_nim_wapresma" class="form-label">NIM</label>
+                                <input type="text" id="formadd_nim_wapresma" onkeyup="searchDataWapresma()" class="form-control" name="nim_wapresma" required>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="nama" class="form-label">Nama</label>
-                                <input type="text" id="formadd_nama_wapresma" class="form-control" name="nama" readonly>
+                                <input type="text" id="formadd_nama_wapresma" class="form-control" name="nama_wapresma" readonly>
                             </div>
                         </div>
                         <div class="mb-3">
@@ -206,10 +221,12 @@ $no = 1;
     }
 </script>
 <script>
-    const editKandidat = (id, nim, name, visi_misi) => {
+    const editKandidat = (id, nama_presma, nim_presma, nama_wapresma, nim_wapresma, visi_misi) => {
         $("#form-edit").attr('action', '/admin/kandidat/' + id);
-        $("#nim-kandidat").val(nim);
-        $("#nama-kandidat").val(name);
+        $("#formedit_nim_presma").val(nim);
+        $("#formedit_nama_presma").val(nama_presma);
+        $("#formedit_nim_wapresma").val(nim);
+        $("#formedit_nama_wapresma").val(nama_wapresma);
         // $("#visi_misi-kandidat").val(visi_misi);
         $('#summernote_edit').summernote('code', visi_misi);
     }
