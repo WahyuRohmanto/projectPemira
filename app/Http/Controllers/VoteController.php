@@ -21,6 +21,7 @@ class VoteController extends Controller
             return redirect('/');
         }
         $kandidat = Kandidat::all();
+        // dd($kandidat);
         return view('pages.vote', compact('kandidat'));
     }
 
