@@ -45,8 +45,10 @@ class KandidatController extends Controller
         $request->file('image')->move(public_path('images/kandidat/'), $fileName);
         $kandidat->image = $fileName;
 
-        $kandidat->nim = $request->nim;
-        $kandidat->nama = $request->nama;
+        $kandidat->nama_presma = $request->nama_presma;
+        $kandidat->nim_presma = $request->nim_presma;
+        $kandidat->nama_wapresma = $request->nama_wapresma;
+        $kandidat->nim_wapresma = $request->nim_wapresma;
         $kandidat->visi_misi = $request->visi_misi;
 
         $kandidat->save();
@@ -99,10 +101,10 @@ class KandidatController extends Controller
             $kandidat->image = $fileName;
         }
 
-        $kandidat->nim = $request->nim;
-        $kandidat->nama = $request->nama;
-        $kandidat->visi = $request->visi;
-        $kandidat->misi = $request->misi;
+        $kandidat->nama_presma = $request->nama_presma;
+        $kandidat->nim_presma = $request->nim_presma;
+        $kandidat->nama_wapresma = $request->nama_wapresma;
+        $kandidat->nim_wapresma = $request->nim_wapresma;
         $kandidat->visi_misi = $request->visi_misi;
 
         $kandidat->save();
