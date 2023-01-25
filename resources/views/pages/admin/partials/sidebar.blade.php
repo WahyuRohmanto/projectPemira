@@ -2,7 +2,7 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
-        <img src="{{ asset('images/LOGO JPG.png') }}" class="img-fluid" width="50px" alt="Responsive image">
+        <img src="{{ asset('img/logo-v2.png') }}" class="img-fluid" width="50px" alt="Responsive image">
         <div class="sidebar-brand-text mx-3">KPRSTTNF</div>
     </a>
 
