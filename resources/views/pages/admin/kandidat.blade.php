@@ -46,21 +46,6 @@ $no = 1;
                         </div>
                         
                         <div class="mb-3">
-                            <label for="visi" class="form-label">Visi</label>
-                            <textarea id="visi" class="form-control" aria-label="With textarea" name="visi"
-                            required></textarea>
-                            
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="misi" class="form-label">Misi</label>
-                            <textarea id="misi" class="form-control" aria-label="With textarea" name="misi"
-                            required></textarea>
-                            
-                        </div>
-                        
-                        
-                        <div class="mb-3">
                             <label for="image" class="form-label">Foto</label>
                             <input type="file" id="image-kandidat" class="form-control" name="image">
                         </div>
@@ -85,35 +70,35 @@ $no = 1;
                     <div class="modal-body">
                         
                         @csrf
-                        <div class="mb-3">
-                            <label for="nim" class="form-label">NIM</label>
-                            <input type="text" id="nim-kandidat" class="form-control" name="nim" required>
+                        <div class="row">
+                            <label for="nim" class="form-label fw-bold">Presma</label>
+                            <div class="mb-3 col-md-6">
+                                <label for="nim" class="form-label">NIM</label>
+                                <input type="text" id="formadd_nim_presma"class="form-control" onkeyup="searchDataPresma()" name="nim" required>
+                                {{-- <button class="btn btn-success" type="button">Cek</button> --}}
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="nama" class="form-label">Nama</label>
+                                <input type="text" id="formadd_nama_presma" class="form-control" name="nama" readonly>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama</label>
-                            <input type="text" id="nama-kandidat" class="form-control" name="nama" required>
+                        <div class="row">
+                            <label for="nim" class="form-label fw-bold">Wapresma</label>
+                            <div class="mb-3 col-md-6">
+                                <label for="nim" class="form-label">NIM</label>
+                                <input type="text" id="formadd_nim_wapresma" onkeyup="searchDataWapresma()" class="form-control" name="nim" required>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="nama" class="form-label">Nama</label>
+                                <input type="text" id="formadd_nama_wapresma" class="form-control" name="nama" readonly>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="visi_misi" class="form-label">Visi & Misi</label>
                             <textarea id="summernote" class="form-control" aria-label="With textarea" name="visi_misi"
                             required></textarea>
                             
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="visi" class="form-label">Visi</label>
-                            <textarea id="visi" class="form-control" aria-label="With textarea" name="visi"
-                            required></textarea>
-                            
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="misi" class="form-label">Misi</label>
-                            <textarea id="misi" class="form-control" aria-label="With textarea" name="misi"
-                            required></textarea>
-                            
-                        </div>
-                        
+                        </div>                       
                         
                         <div class="mb-3">
                             <label for="image" class="form-label">Foto</label>
@@ -215,19 +200,35 @@ $no = 1;
 <script src="{{ asset('template/js/demo/datatables-demo.js') }}"></script>
 <script>
     const visiMisi = (visi_misi) => {
+        console.log(visi_misi)
         $("#visi_misiKandidat").html('');
         $("#visi_misiKandidat").html(visi_misi);
     }
 </script>
 <script>
-    const editKandidat = (id, nim, name, visi_misi, visi, misi) => {
+    const editKandidat = (id, nim, name, visi_misi) => {
         $("#form-edit").attr('action', '/admin/kandidat/' + id);
         $("#nim-kandidat").val(nim);
         $("#nama-kandidat").val(name);
-        $("#visi").val(visi);
-        $("#misi").val(misi);
         // $("#visi_misi-kandidat").val(visi_misi);
         $('#summernote_edit').summernote('code', visi_misi);
     }
-        </script>
-        @endsection
+    const searchDataPresma = async () => {
+        const nim = $('#formadd_nim_presma').val();
+        const allUsersResponse = await axios.get('/api/cek-kandidat/'+nim).catch(console.log('is typing'));
+        
+        $("#formadd_nama_presma").val(allUsersResponse.data.data.name); 
+        $("#formadd_nama_presma").attr('placeholder','allUsersResponse.data.data.name'); 
+        
+    }
+    const searchDataWapresma = async () => {
+        const nim = $('#formadd_nim_wapresma').val();
+        const allUsersResponse = await axios.get('/api/cek-kandidat/'+nim);
+        
+        $("#formadd_nama_wapresma").val(allUsersResponse.data.data.name); 
+        $("#formadd_nama_wapresma").attr('placeholder','allUsersResponse.data.data.name'); 
+        
+    }
+
+</script>
+@endsection

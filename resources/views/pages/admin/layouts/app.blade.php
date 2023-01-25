@@ -11,6 +11,7 @@
 
     <title>Admin - @yield('title')</title>
 
+    <link rel="icon" href="{{ asset('/img/favicon.ico') }}" />
     <!-- Custom fonts for this template-->
     <link href="{{ asset('template/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
@@ -91,82 +92,82 @@
     <!-- Page level custom scripts -->
     {{-- @method('dashboard-chart') --}}
     <script>
-        axios.get('/api/countRegis').then((response) => {
-            // index untuk angkatan
-            const users2018 = 1;
-            const users2019 = 2;
-            const users2020 = 3;
-            const users2021 = 4;
+        // axios.get('/api/countRegis').then((response) => {
+        //     // index untuk angkatan
+        //     const users2018 = 1;
+        //     const users2019 = 2;
+        //     const users2020 = 3;
+        //     const users2021 = 4;
 
-            console.log({
-                countRegis: response
-            });
+        //     console.log({
+        //         countRegis: response
+        //     });
 
-            const registeredUsers = response.data.data.regis;
-            const unregisteredUsers = response.data.data.no_regis;
+        //     const registeredUsers = response.data.data.regis;
+        //     const unregisteredUsers = response.data.data.no_regis;
 
-            console.log({
-                registeredUsers
-            })
+        //     console.log({
+        //         registeredUsers
+        //     })
 
-            // untuk cek apakah value user tahun === index user tahun dan jika salah beri default value 0
-            const validateRegisteredUserYear = (year, index) => {
-                if (registeredUsers[index] === undefined) {
-                    return 0;
-                }
-                if (registeredUsers[index].tahun === year) {
-                    return registeredUsers[index].jumlah;
-                }
-            };
+        //     // untuk cek apakah value user tahun === index user tahun dan jika salah beri default value 0
+        //     const validateRegisteredUserYear = (year, index) => {
+        //         if (registeredUsers[index] === undefined) {
+        //             return 0;
+        //         }
+        //         if (registeredUsers[index].tahun === year) {
+        //             return registeredUsers[index].jumlah;
+        //         }
+        //     };
 
-            const chartRegisterUsers = new Chart(document.getElementById('chartRegisterUsers'), {
-                type: 'bar',
-                data: {
-                    labels: [
-                        2018, 2019, 2020, 2021
-                    ],
-                    datasets: [{
-                            label: 'Telah Teregistrasi',
-                            backgroundColor: [
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(54, 162, 235, 1)',
-                            ],
-                            data: [
-                                registeredUsers[0].jumlah,
-                                registeredUsers[1].jumlah,
-                                registeredUsers[2].jumlah,
-                                registeredUsers[3].jumlah,
-                            ],
-                        },
-                        {
-                            label: 'Belum Teregistrasi',
-                            backgroundColor: [
-                                'rgba(54, 162, 235, 0.5)',
-                                'rgba(54, 162, 235, 0.5)',
-                                'rgba(54, 162, 235, 0.5)',
-                                'rgba(54, 162, 235, 0.5)',
-                            ],
-                            data: [
-                                unregisteredUsers[users2018].jumlah,
-                                unregisteredUsers[users2019].jumlah,
-                                unregisteredUsers[users2020].jumlah,
-                                unregisteredUsers[users2021].jumlah,
-                            ],
-                        },
-                    ],
-                },
-                options: {
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Data Mahasiswa yang Melakukan Registrasi'
-                        }
-                    }
-                }
-            });
-        });
+        //     const chartRegisterUsers = new Chart(document.getElementById('chartRegisterUsers'), {
+        //         type: 'bar',
+        //         data: {
+        //             labels: [
+        //                 2018, 2019, 2020, 2021
+        //             ],
+        //             datasets: [{
+        //                     label: 'Telah Teregistrasi',
+        //                     backgroundColor: [
+        //                         'rgba(54, 162, 235, 1)',
+        //                         'rgba(54, 162, 235, 1)',
+        //                         'rgba(54, 162, 235, 1)',
+        //                         'rgba(54, 162, 235, 1)',
+        //                     ],
+        //                     data: [
+        //                         registeredUsers[0].jumlah,
+        //                         registeredUsers[1].jumlah,
+        //                         registeredUsers[2].jumlah,
+        //                         registeredUsers[3].jumlah,
+        //                     ],
+        //                 },
+        //                 {
+        //                     label: 'Belum Teregistrasi',
+        //                     backgroundColor: [
+        //                         'rgba(54, 162, 235, 0.5)',
+        //                         'rgba(54, 162, 235, 0.5)',
+        //                         'rgba(54, 162, 235, 0.5)',
+        //                         'rgba(54, 162, 235, 0.5)',
+        //                     ],
+        //                     data: [
+        //                         unregisteredUsers[users2018].jumlah,
+        //                         unregisteredUsers[users2019].jumlah,
+        //                         unregisteredUsers[users2020].jumlah,
+        //                         unregisteredUsers[users2021].jumlah,
+        //                     ],
+        //                 },
+        //             ],
+        //         },
+        //         options: {
+        //             plugins: {
+        //                 title: {
+        //                     display: true,
+        //                     text: 'Data Mahasiswa yang Melakukan Registrasi'
+        //                 }
+        //             }
+        //         }
+        //     });
+        // });
     </script>
     {{-- <script src="{{ asset('template/js/demo/chart-area-demo.js') }}"></script> --}}
     <script src="{{ asset('template/js/demo/chart-pie-demo.js') }}"></script>

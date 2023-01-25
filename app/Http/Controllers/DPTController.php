@@ -38,4 +38,23 @@ class DPTController extends Controller
             return response($this->response, 200);
         }
     }
+
+    public function cekKandidat($nim)
+    {
+        $data = User::where('nim', $nim)->first();
+        if (empty($data)) {
+            $this->response = [
+                'status' => 'Failed',
+                'message' => 'Data Not Found',
+            ];
+            return response($this->response, 404);
+        } else {
+            $this->response = [
+                'status' => 'Success',
+                'data' => $data,
+                'message' => 'Data Found',
+            ];
+            return response($this->response, 200);
+        }
+    }
 }

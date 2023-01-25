@@ -25,4 +25,5 @@ Route::get('/countRegis', [RegisFromNimController::class, 'countRegis'])->name('
 Route::put('/voting', [VotingController::class, 'vote'])->name('voting');
 // Route::get('/countVoting', [VotingController::class, 'countVoting'])->name('count-voting');
 Route::get('/live_count', [LiveCountController::class, 'liveCount'])->name('live-count');
-Route::post('/cekDPT', [DPTController::class, 'index'])->name('cek-dpt');
+Route::post('/cekDPT', [DPTController::class, 'inPdex'])->name('cek-dpt');
+Route::get('/cek-kandidat/{nim}', [DPTController::class, 'cekKandidat'])->name('cek-kandidat');
