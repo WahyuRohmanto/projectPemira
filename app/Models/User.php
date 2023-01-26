@@ -44,4 +44,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function presma()
+    {
+        return $this->hasMany('App\Models\User');
+    }
+
+    public function wapresma()
+    {
+        return $this->hasMany('App\Models\User');
+    }
 }

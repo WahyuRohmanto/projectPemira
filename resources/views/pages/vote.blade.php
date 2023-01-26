@@ -15,7 +15,7 @@ $no = 1;
 
             <div class="card text-center mb-3 card-name" style="border-radius: 20px; opacity: 100%">
                 <div class="card-body card-name2">
-                    <h5 class="card-title">{{$data_K->nama}}</h5>
+                    <h5 class="card-title">{{$data_K->presma->name}} & {{$data_K->wapresma->name}}</h5>
                     <div class="d-flex justify-content-center">
                         <button type="button" class="btn btn-primary visi-btn" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">

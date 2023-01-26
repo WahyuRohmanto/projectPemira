@@ -20,7 +20,7 @@ class VoteController extends Controller
             Alert::error('Perhatian', 'Anda Sudah Melakukan Voting');
             return redirect('/');
         }
-        $kandidat = Kandidat::all();
+        $kandidat = Kandidat::with(['presma','wapresma'])->get();
         // dd($kandidat);
         return view('pages.vote', compact('kandidat'));
     }
