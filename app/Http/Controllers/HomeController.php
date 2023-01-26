@@ -11,7 +11,7 @@ class HomeController extends Controller
   public function index()
   {
     if (Auth::check()) {
-      $saran = Saran::where('name', Auth::user()->name)->first();
+      $saran = Saran::where('user_id', Auth::user()->id)->first();
     } else {
       $saran = null;
     }

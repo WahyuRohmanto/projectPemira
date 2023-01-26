@@ -11,4 +11,9 @@ class Saran extends Model
 
     protected $table = 'saran';
     protected $guarded = ['id'];
+
+    // menghubungkan dengan table parents (user)
+    public function user () {
+        return $this->belongsTo("App\Models\User");
+    }
 }

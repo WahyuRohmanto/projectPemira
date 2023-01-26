@@ -54,4 +54,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Kandidat');
     }
+
+    public function saran()
+    {
+        return $this->hasMany('App\Models\Saran');
+    }
 }

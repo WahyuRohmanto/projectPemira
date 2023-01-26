@@ -10,16 +10,14 @@ class SaranController extends Controller
 {
     public function index()
     {
-        $saran = Saran::all();
+        $saran = Saran::with('user')->get();
         return view('pages.admin.saran', compact('saran'));
     }
 
     public function store(Request $request)
     {
         $saran = new Saran;
-        $saran->name = $request->name;
-        $saran->nim = $request->nim;
-        $saran->email = $request->email;
+        $saran->user_id = $request->user_id;
         $saran->pesan = $request->pesan;
         $saran->save();
 

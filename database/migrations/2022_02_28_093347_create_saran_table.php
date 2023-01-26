@@ -15,9 +15,7 @@ class CreateSaranTable extends Migration
     {
         Schema::create('saran', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('nim');
+            $table->integer("user_id")->references('id')->on('users');
             $table->text('pesan');
             $table->timestamps();
         });
