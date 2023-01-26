@@ -47,11 +47,11 @@ class User extends Authenticatable
 
     public function presma()
     {
-        return $this->hasMany('App\Models\User');
+        return $this->hasMany('App\Models\Kandidat');
     }
 
     public function wapresma()
     {
-        return $this->hasMany('App\Models\User');
+        return $this->hasMany('App\Models\Kandidat');
     }
 }
