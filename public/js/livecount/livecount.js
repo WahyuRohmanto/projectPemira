@@ -3,12 +3,11 @@ const canvasElement = document.getElementById('chartVotingSementara');
 
 // const liveCountChart = () => {
     $.ajax({
-        url:'http://0.0.0.0:8000/api/live_count',
+        url:'http://127.0.0.1:8000/api/live_count',
         type:'GET',
         dataType:'json',
         success: function(response){
             let kandidatData = response.data;
-            
             let dataJumlahSuara = [];
             let namaKandidat = [];
             
