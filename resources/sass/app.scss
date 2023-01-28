@@ -5,19 +5,19 @@
 }
 
 .active {
-  color: #08679e !important;
+  color: #6D9A86 !important;
   font-weight: bold;
 }
 
 .text-color {
-  color: #08679e !important;
+  color: #6D9A86 !important;
 }
 .bg-color {
-  background: #08679e !important;
+  background: #6D9A86 !important;
 }
 
 .btn-primary {
-  background: #08679e !important;
+  background: #6D9A86 !important;
   &:hover {
     filter: brightness(90%);
   }
@@ -30,7 +30,7 @@
 }
 
 .nav-link {
-  color: #08679e !important;
+  color: #6D9A86 !important;
 }
 
 .logo-icon {
@@ -51,7 +51,7 @@
 #demo {
   border: 5px dashed #fff;
   color: #fff;
-  background: #08679e;
+  background: #6D9A86;
 }
 
 // .guide {
@@ -64,7 +64,7 @@
 }
 
 .foot-path {
-  border: 2px dashed #08679e; 
+  border: 2px dashed #6D9A86; 
   width: 100%; 
   height: 2px;
   @media screen and (max-width: 991px) {
@@ -87,5 +87,5 @@
 .sosmed-link {
   text-decoration: none;
   font-size: 20px;
-  color: #08679e;
+  color: #6D9A86;
 }
