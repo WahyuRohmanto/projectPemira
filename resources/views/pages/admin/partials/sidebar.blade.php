@@ -12,21 +12,21 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item @yield('active-dashboard')">
         <a class="nav-link" href="/admin">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="bi bi-database-fill"></i>
             <span>Dashboard</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item @yield('active-kandidat')">
         <a class="nav-link" href="/admin/kandidat">
-            <i class="fas fa-fw fa-user-tie"></i>
+            <i class="bi bi-people-fill"></i>
             <span>Kandidat</span></a>
     </li>
 
     <!-- Nav Item - Voting -->
     <li class="nav-item @yield('active-voting')">
         <a class="nav-link" href="/admin/voting">
-            <i class="fas fa-fw fas fa-poll"></i>
+            <i class="bi bi-check2-square"></i>
             <span>Voting</span></a>
     </li>
 
@@ -36,7 +36,7 @@
     <!-- Nav Item - Mahasiswa -->
     <li class="nav-item @yield('active-users')">
         <a class="nav-link" href="/admin/mahasiswa">
-            <i class="fas fa-fw fa-table"></i>
+            <i class="bi bi-person-fill-gear"></i>
             <span>Mahasiswa</span></a>
     </li>
 
