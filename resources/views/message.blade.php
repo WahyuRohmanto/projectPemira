@@ -13,12 +13,12 @@
         </div>
         {{-- right container --}}
         <div class="box-right vh-100">
-            <h2>
+            <h2 id="wwk">
                 "Pilihlah pilihan dengan kebijakan yang terbaik untuk memastikan bahwa anda membuat keputusan yang
                 tepat, untuk keberlangsungan jangka panjang "
             </h2>
-            <a href="/voting" class="choice">
-                <h2 class="co">Mulai Memilih</h2>
+            <a href="/voting" class="choice" id="choice">
+                <h2 class="co" id="mulai">Mulai Memilih</h2>
             </a>
         </div>
     </div>

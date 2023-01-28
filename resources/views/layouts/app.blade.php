@@ -48,7 +48,7 @@ function urlContains($contains)
     <div id="app">
         @include('../partials/preloader')
 
-        @if (!Request::is('login') && !Request::is('register') && !Request::is('test'))
+        @if (!Request::is('login') && !Request::is('register') && !Request::is('message'))
         @include('../partials/navbar')
         @endif
 
@@ -60,7 +60,10 @@ function urlContains($contains)
 			@include('../partials/footer')
 		@endif --}}
     </div>
-
+    <script>
+    src = "{{ asset('js/myjs.js') }}"
+    defer
+    </script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"

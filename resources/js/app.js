@@ -24,6 +24,11 @@ function fadeIn() {
 	}, 200);
 }
 
+    setTimeout(function() {
+        document.getElementById('choice').style.display = 'block';
+    }, 2000);
+
+
 // feather icon
 feather.replace();
 

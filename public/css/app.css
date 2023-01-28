@@ -253,6 +253,16 @@
 .aj {
   margin: auto auto;
 }
+
+.paslon {
+  width: 25rem !important;
+}
+
+.card-name {
+  left: 52px;
+}
+
+
 }
 
 /* medium screen */

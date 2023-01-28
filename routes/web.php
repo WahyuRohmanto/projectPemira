@@ -63,6 +63,6 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('/kandidat', KandidatController::class);
 });
 
-Route::get('/test',function(){
-    return view('test');
+Route::get('/message',function(){
+    return view('message');
 });
