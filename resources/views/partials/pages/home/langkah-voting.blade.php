@@ -3,17 +3,6 @@
         <h1 class="fw-bold text-color mt-5 mb-5 text-center">Langkah Langkah Voting</h1>
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-2 text-center step d-flex align-items-center p-0">
-                <div class="card step-guide h-100 border-0">
-                    <div class="card-body p-0">
-                        <img src="{{ asset('/img/Mobile-register.svg') }}" class="img-guide  w-100" />
-                        <h4 class="text-color mt-2 fw-bold">Daftar Ulang</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-1 d-flex align-items-center">
-                <div class="foot-path"></div>
-            </div>
-            <div class="col-lg-2 text-center step d-flex align-items-center p-0">
                 <div class="card step-guide border-0">
                     <div class="card-body p-0">
                         <img src="{{ asset('/img/Mobile-login.svg') }}" class="img-guide w-100" />

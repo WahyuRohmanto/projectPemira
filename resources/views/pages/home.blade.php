@@ -21,13 +21,6 @@
 <br />
 <br />
 
-@include('../partials/pages/home/cek-daftar-pemilih-tetap')
-
-<hr class="container" />
-<br />
-<br />
-<br />
-
 @include('../partials/pages/home/syarat-dan-ketentuan')
 
 <hr class="container" />
