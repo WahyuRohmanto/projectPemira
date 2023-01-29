@@ -39,7 +39,7 @@ class VoteController extends Controller
             return redirect('/');
         } else {
             Vote::create(['id_kandidat' => $request->input('id_kandidat'), 'id_user' => Auth::user()->id]);
-            Alert::success('Sukses', 'Terima Kasih Sudah Melakukan Voting');
+            // Alert::success('Sukses', 'Terima Kasih Sudah Melakukan Voting');
             $this->auth->logout();
         }
     }
