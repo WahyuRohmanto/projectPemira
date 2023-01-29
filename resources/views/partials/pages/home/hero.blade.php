@@ -10,13 +10,10 @@
                     ( Dewan Perwakilan Mahasiswa ).
                 </p>
                 <div class="row g-3">
-                    <div class="col-lg-4">
-                        <a href="https://youtu.be/UpPklv4zLfc" target="_blank"
-                            class="btn border w-100 border-2 rounded-pill fw-bold text-color" style="min-height: 44px;"
-                            href="#">
-                            <i class="fa-solid fa-play"></i> Cara Voting Presma?
-                        </a>
-                    </div>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/HXN0GD4Ai3c"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
                 </div>
             </div>
             <div class="col-lg-4 order-lg-1 order-0">

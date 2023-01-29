@@ -25,7 +25,8 @@ $no = 1;
                             @csrf
                             @method('PATCH')
                             <input type="hidden" name="id_kandidat" value="{{ $data_K->id }}">
-                            <button type="submit" class="btn vote-btn p-2">VOTE</button>
+                            <button type="submit" onclick="return confirm('Kamu Yakin Atas Pilihan Mu?');"
+                                class="btn vote-btn p-2">VOTE</button>
                         </form>
                     </div>
                 </div>

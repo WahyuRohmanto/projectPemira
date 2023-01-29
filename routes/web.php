@@ -51,6 +51,9 @@ Route::middleware('auth')->group(function(){
     Route::patch('/voting', [VoteController::class, 'vote'])->name('vote');
     Route::put('/saran', [SaranController::class, 'store'])->name('saran');
     Route::get('/selengkapnya', [VisiMisiController::class, 'selengkapnya'])->name('selengkapnya.selengkapnya');
+    Route::get('/message',function(){
+        return view('message');
+    });
 });
 
 # admin routes
@@ -61,8 +64,4 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/voting', [VotingController::class, 'index']);
     Route::get('/saran', [SaranController::class, 'index']);
     Route::resource('/kandidat', KandidatController::class);
-});
-
-Route::get('/message',function(){
-    return view('message');
 });
