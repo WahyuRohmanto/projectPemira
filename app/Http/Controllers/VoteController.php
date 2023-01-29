@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kandidat;
 use App\Models\Vote;
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -11,6 +12,11 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class VoteController extends Controller
 {
+    public function __construct()
+    {
+        $this->auth = new AuthController(); 
+    }
+
     public function index()
     {
         // dd(Auth::user()->id);
@@ -34,7 +40,7 @@ class VoteController extends Controller
         } else {
             Vote::create(['id_kandidat' => $request->input('id_kandidat'), 'id_user' => Auth::user()->id]);
             Alert::success('Sukses', 'Terima Kasih Sudah Melakukan Voting');
-            return redirect('/');
+            $this->auth->logout();
         }
     }
 }
