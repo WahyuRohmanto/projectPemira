@@ -51,9 +51,6 @@ $no = 1;
         </div>
         @endforeach
     </div>
-
-
-
 </section>
 @include('partials.footer')
 @endsection

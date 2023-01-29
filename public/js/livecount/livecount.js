@@ -11,13 +11,14 @@ const canvasElement = document.getElementById('chartVotingSementara');
             let dataJumlahSuara = [];
             let namaKandidat = [];
             
+            // console.log(kandidatData);
             kandidatData.forEach(response => {
                 dataJumlahSuara.push(response.jumlah_suara);
-                namaKandidat.push(response.nama_kandidat);
+                namaKandidat.push(response.nama_presma);
             });
 
             new Chart(canvasElement, {
-                type: 'bar',
+                type: 'doughnut',
                 data: {
                     labels: namaKandidat,
                     datasets: [{
@@ -57,7 +58,6 @@ const canvasElement = document.getElementById('chartVotingSementara');
         }
     });
 // }
-liveCount();
 // let i = 1;
 // const countDown = () => {
 //     console.log(i);
