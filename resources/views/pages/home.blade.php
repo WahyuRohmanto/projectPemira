@@ -37,7 +37,7 @@
 
 @include('../partials/pages/home/kritik-dan-saran')
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
 window.$crisp = [];
 window.CRISP_WEBSITE_ID = "5e6c2451-b3d6-4db8-adab-1163292d7bbe";
 (() => {
@@ -47,6 +47,6 @@ window.CRISP_WEBSITE_ID = "5e6c2451-b3d6-4db8-adab-1163292d7bbe";
     s.async = 1;
     d.getElementsByTagName("head")[0].appendChild(s);
 })();
-</script>
+</script> --}}
 @include('../partials/footer')
 @endsection
