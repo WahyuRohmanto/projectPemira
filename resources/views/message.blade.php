@@ -25,3 +25,10 @@
 </div>
 <!-- MASIH ADA SCRIPT YANG BELOM DI PANGGIL --->
 @endsection
+@push('scripts')
+<script>
+    $(document).ready(function(){
+        $('#wwk').text('Pilihlah untuk masa depan yang lebih baik, ea ea !');
+    });
+</script>
+@endpush
