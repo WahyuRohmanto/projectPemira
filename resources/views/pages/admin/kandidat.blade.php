@@ -170,7 +170,7 @@ $no = 1;
                             aria-labelledby="dropdownMenuLink">
                             <div class="dropdown-header">Action:</div>
                             <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editKandidat"
-                            onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->nim }}', '{{ $data_K->nama }}', '{{ $data_K->visi_misi }}')">Edit</a>
+                            onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->presma->nim }}', '{{ $data_K->presma->name }}', '{{ $data_K->visi_misi }}')">Edit</a>
                             {{-- <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a> --}}
                         </div>
@@ -183,8 +183,8 @@ $no = 1;
                         src="{{ $data_K->image == null ? 'https://dummyimage.com/250x300/000/fff' : '/images/kandidat/' . $data_K->image }}"
                         alt="">
                     </div>
-                    <div class="d-flex flex-row align-items-center justify-content-center">
-                        <h3>{{ $data_K->nama }}</h3>
+                    <div class="d-flex flex-row align-items-center text-center">
+                        <h3>{{ $data_K->presma->name }} & {{ $data_K->wapresma->name }}</h3>
                     </div>
                     <div class="dropdown-divider"></div>
                     <div class="mt-4 text-center small">

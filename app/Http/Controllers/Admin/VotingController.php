@@ -15,8 +15,7 @@ class VotingController extends Controller
 
     public function index()
     {
-        $data = Vote::with(['user', 'kandidat'])->get();
-
+        $data = Vote::with(['user', 'kandidat.presma', 'kandidat.wapresma'])->get();
         return view('pages.admin.voting', compact('data'));
     }
 
