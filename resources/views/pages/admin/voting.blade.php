@@ -65,7 +65,7 @@
                                     <tr>
                                         <td>{{ $d->user->nim }}</td>
                                         <td>{{ $d->user->name }}</td>
-                                        <td>{{ $d->kandidat->nama }}</td>
+                                        <td>{{ @$d->kandidat->presma->name }} & {{ @$d->kandidat->wapresma->name }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
