@@ -18,7 +18,7 @@ class KandidatController extends Controller
      */
     public function index()
     {
-        $kandidat = Kandidat::all();
+        $kandidat = Kandidat::with('presma','wapresma')->get();
         return view('pages.admin.kandidat', compact('kandidat'));
     }
 
