@@ -113,14 +113,16 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Jumlah Verifikasi Pemilih</h6>
-
+                        <h6 class="m-0 font-weight-bold text-primary">Persentase Pemilih</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <div class="chart-area">
-                            <canvas id="chartRegisterUsers"></canvas>
+                        <h4 class="text-center" id="progressLabel"></h4>
+                        <div class="progress" style="height: 30px;" >
+                            <div class="progress-bar progress-bar-striped" id="voteProgress" role="progressbar" style="width: 25%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="2000">
+                            </div>
                         </div>
+                        <h5 class="text-center mt-2 bg-success text-white p-1" ><span id="totalLabel"></span> dari 2000 Pemilih</h5>
                     </div>
                 </div>
             </div>
@@ -130,20 +132,12 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Jumlah Suara Masuk</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Grafik Perhitungan</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="chart-pie pt-4 pb-2">
-                            <canvas id="myPieChart"></canvas>
-                        </div>
-                        <div class="mt-4 text-center small">
-                            <span class="mr-2">
-                                <i class="fas fa-circle text-primary"></i> Kandidat 1
-                            </span>
-                            <span class="mr-2">
-                                <i class="fas fa-circle text-success"></i> Kandidat 2
-                            </span>
+                            <canvas id="chartVotingSementara" aria-label="chart voting sementara"></canvas>
                         </div>
                     </div>
                 </div>
@@ -151,4 +145,32 @@
         </div>
 
     </div>
+@endsection
+@section('dataTablesJS')
+    <script src="{{asset('js/livecount/livecount.min.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            console.log('total');
+            $.ajax({
+            url:'http://localhost:8000/api/live_count',
+            method:'GET',
+            success: function(response){
+                const kandidatData = response.data;
+                let total = 0;
+                kandidatData.forEach(response => {
+                    total += response.jumlah_suara;
+                });
+                console.log(total);
+                $("#voteProgress").attr('aria-valuenow',total).css('width',function(){
+                    let hasil = total / 2000 * (100); 
+                    $("#progressLabel").text(hasil+"%");
+                    console.log(hasil);
+                    return hasil+"%";
+                });
+                $("#totalLabel").text(total);
+            }
+            });
+        });
+    </script>
+    
 @endsection
