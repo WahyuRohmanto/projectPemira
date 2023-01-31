@@ -10,7 +10,7 @@
                 </div>
             </div>
             @push('scripts')
-                <script src="{{asset('js/livecount/livecount.js')}}"></script>
+                <script src="{{asset('js/livecount/livecount.min.js')}}"></script>
             @endpush
             <!---- @END__LIVE_COUNTING ---->
         </div>

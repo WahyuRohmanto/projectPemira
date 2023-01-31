@@ -19,7 +19,9 @@ function urlContains($contains)
     <link rel="icon" href="{{ asset('/img/favicon.ico') }}" />
 
     <!---- Data Table  --->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css" 
+        integrity="sha512-1k7mWiTNoyx2XtmI96o+hdjP8nn0f3Z2N4oF/9ZZRgijyV4omsKOXEnqL1gKQNPy2MTSP9rIEWGcH/CInulptA==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
