@@ -18,3 +18,44 @@
     filter: drop-shadow(0px 0px 10px #a6a6a7);
     z-index: 9;
 }
+
+
+.btn-admin{
+    color: #fff;
+    background-color: #6D9A86;
+    border: none;
+}
+
+a.btn-admin:hover{
+    color: #6D9A86;
+    background-color: #fff;
+    border-color: #6D9A86;
+    border: 1px solid #6D9A86;
+}
+
+.btn-modal{
+    color: #fff;
+    background-color: #6D9A86;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.btn-modal:hover{
+    color: #6D9A86;
+    background-color: #fff;
+    border: 1px solid #6D9A86;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.fnt-kandidat{
+    color: #6D9A86;
+    font-weight: bold;
+}
