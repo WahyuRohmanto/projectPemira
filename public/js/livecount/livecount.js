@@ -18,7 +18,7 @@ const canvasElement = document.getElementById('chartVotingSementara');
             });
 
             new Chart(canvasElement, {
-                type: 'doughnut',
+                type: 'bar',
                 data: {
                     labels: namaKandidat,
                     datasets: [{
@@ -33,6 +33,7 @@ const canvasElement = document.getElementById('chartVotingSementara');
                 },
                 options: {
                     responsive:true,
+                    legend:{position:'bottom'},
                     plugins : {
                         datalabels:{
                             formatter:(value,live_count) => {
