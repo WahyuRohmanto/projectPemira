@@ -14,7 +14,7 @@ const canvasElement = document.getElementById('chartVotingSementara');
             // console.log(kandidatData);
             kandidatData.forEach(response => {
                 dataJumlahSuara.push(response.jumlah_suara);
-                namaKandidat.push(response.nama_presma);
+                namaKandidat.push(response.nama_kandidat);
             });
 
             new Chart(canvasElement, {

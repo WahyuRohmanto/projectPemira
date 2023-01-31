@@ -84,6 +84,10 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('template/js/sb-admin-2.min.js') }}"></script>
 
+    {{-- chartjs --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"
+        integrity="sha512-60KwWtZOhzgr840mc57MV8JqDZHAws3w61mhK45KsYHmhyNFJKmfg4M7/s2Jsn4PgtQ4Uhr9xItS+HCbGTIRYQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Page level plugins -->
     <script src="{{ asset('template/vendor/chart.js/Chart.min.js') }}"></script>
     @yield('dataTablesJS')

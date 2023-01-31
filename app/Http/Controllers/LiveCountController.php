@@ -21,8 +21,10 @@ class LiveCountController extends Controller
 
     public function liveCount()
     {
-        $query = DB::select('SELECT COUNT(vote.id_kandidat) AS jumlah_suara, vote.id_kandidat, users.name as nama_presma FROM vote 
-                            JOIN kandidat ON vote.id_kandidat = kandidat.id JOIN users ON users.id = kandidat.presma_id 
+        $query = DB::select('SELECT COUNT(vote.id_kandidat) AS jumlah_suara, CONCAT(u1.name," & ", u2.name) as nama_kandidat FROM vote 
+                             JOIN kandidat ON vote.id_kandidat = kandidat.id
+                             JOIN users as u1 ON u1.id = kandidat.presma_id 
+                            JOIN users as u2 ON u2.id = kandidat.wapresma_id 
                             GROUP BY vote.id_kandidat');
 
         $data = [
