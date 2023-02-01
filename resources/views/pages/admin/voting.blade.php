@@ -30,7 +30,7 @@ active
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <div class="chart-pie pt-4 pb-2">
+                    <div class="chart-pie pt-4 pb-1">
                         <canvas id="chartVotingSementara" aria-label="chart voting sementara"></canvas>
                     </div>
                     <table class="table table-bordered table-striped" id="myTable">
@@ -88,27 +88,6 @@ active
     <script src="{{ asset('template/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('template/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('template/js/demo/datatables-demo.js') }}"></script>
-    <script src="{{asset('js/livecount/livecount.js')}}"></script>
-    <script>
-    $.ajax({
-        url: 'http://127.0.0.1:8000/api/live_count',
-        type: 'GET',
-        dataType: 'json',
-        success: function(response) {
-            let kandidatData = response.data;
-            // let dataJumlahSuara = [];
-            // let namaKandidat = [];
-
-            kandidatData.forEach(response => {
-                $('#myTable tr:last').after(
-                    `<tr><td>${response.id}</td><td>${response.nama_kandidat}</td><td>${response.jumlah_suara}</td></tr>`
-                );
-            });
-        }
-    });
-    </script>
+    <script src="{{asset('js/livecount/livecount.min.js')}}"></script>
+    <script src="{{asset('js/totalsuara/totalsuara.js')}}"></script>
     @endsection
-
-    {{-- @push('scripts')
-   
-    @endpush --}}

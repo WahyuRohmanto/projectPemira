@@ -109,7 +109,7 @@
         <div class="row">
 
             <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-xl-7 col-lg-7">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -117,18 +117,18 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <h4 class="text-center" id="progressLabel"></h4>
-                        <div class="progress" style="height: 30px;" >
-                            <div class="progress-bar progress-bar-striped" id="voteProgress" role="progressbar" style="width: 25%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="2000">
+                        <h4 class="text-center"><span id="progressLabel" class="fw-bold"></span></h4> 
+                        <div class="progress" style="height: 30px;" > 
+                            <div class="progress-bar progress-bar-striped" id="voteProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="2000">
                             </div>
                         </div>
-                        <h5 class="text-center mt-2 bg-success text-white p-1" ><span id="totalLabel"></span> dari 2000 Pemilih</h5>
+                        <h5 class="text-center mt-2 bg-secondary text-white p-1" ><span id="totalLabel"></span> Suara masuk dari 2000 Pemilih</h5>
                     </div>
                 </div>
             </div>
 
             <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
+            <div class="col-xl-5 col-lg-5">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -136,7 +136,7 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <div class="chart-pie pt-4 pb-2">
+                        <div class="chart-pie pt-4">
                             <canvas id="chartVotingSementara" aria-label="chart voting sementara"></canvas>
                         </div>
                     </div>
@@ -148,15 +148,17 @@
 @endsection
 @section('dataTablesJS')
     <script src="{{asset('js/livecount/livecount.min.js')}}"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        $(document).ready(function(){
-            console.log('total');
-            $.ajax({
-            url:'http://localhost:8000/api/live_count',
-            method:'GET',
-            success: function(response){
-                const kandidatData = response.data;
+        const progressBarProcessor = async () => {
+            const response = await axios.get('/api/live_count');
+        // $.ajax({
+        //     url:'http://localhost:8000/api/live_count',
+        //     method:'GET',
+        //     success: function(response){
+                const kandidatData = response.data.data;
                 let total = 0;
+                const totalData = 
                 kandidatData.forEach(response => {
                     total += response.jumlah_suara;
                 });
@@ -164,13 +166,13 @@
                 $("#voteProgress").attr('aria-valuenow',total).css('width',function(){
                     let hasil = total / 2000 * (100); 
                     $("#progressLabel").text(hasil+"%");
-                    console.log(hasil);
                     return hasil+"%";
                 });
                 $("#totalLabel").text(total);
-            }
-            });
-        });
+        //     }
+        // });
+        }
+        progressBarProcessor();
     </script>
     
 @endsection

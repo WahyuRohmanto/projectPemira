@@ -190,7 +190,7 @@ $no = 1;
                     <div class="pt-4 pb-2 d-flex flex-row align-items-center justify-content-center">
                         <img class="img-fluid" style="width:250px;height:300px;object-fit:cover;"
                             src="{{ $data_K->image == null ? 'https://dummyimage.com/250x300/000/fff' : '/images/kandidat/' . $data_K->image }}"
-                            alt="">
+                            alt="" loading="lazy" decoding="async">
                     </div>
                     <div class="d-flex flex-row align-items-center text-center">
                         <h3>{{ $data_K->presma->name }} & {{ $data_K->wapresma->name }}</h3>
@@ -233,8 +233,9 @@ const visiMisi = (visi_misi) => {
 <script>
 const editKandidat = (id, presma_id, wapresma_id, visi_misi, image) => {
     $("#form-edit").attr('action', '/admin/kandidat/' + id);
-    // $("#formedit_nim_presma").val(nim);
-    // $("#formedit_nama_presma").val(nama_presma);
+    // $("#formedit_nim_presma").val(presma.nim);
+    // $("#formedit_nama_presma").val(presma.name);
+    console.log(nama_presma)
     // $("#formedit_nim_wapresma").val(nim);
     // $("#formedit_nama_wapresma").val(nama_wapresma);
     $("#formedit_presma_id").val(presma_id);

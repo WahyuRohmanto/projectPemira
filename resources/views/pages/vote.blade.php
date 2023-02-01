@@ -10,7 +10,7 @@ $no = 1;
     <div class="row d-flex justify-content-center pl-5 rowVote">
         @foreach ($kandidat as $data_K)
         <div class="col-md-6 aj">
-            <div class="p-1"><img class="rounded foto paslon" src="{{ asset('images/kandidat/kandidat1.png') }}" alt="">
+            <div class="p-1"><img class="rounded foto paslon" loading="lazy" decoding="async" src="{{ asset('images/kandidat/kandidat1.png') }}" alt="">
             </div>
             <div class="card text-center mb-3 card-name" style="border-radius: 20px; opacity: 100%">
                 <div class="card-body card-name2">
