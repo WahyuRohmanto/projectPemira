@@ -58,10 +58,13 @@ active
                 <div class="card-body">
                     <table class="table table-striped" id="dataTable" width="100%">
                         <thead>
+                            @php
+                            $title = ['NIM', 'Nama', 'Coblos'];
+                            @endphp
                             <tr>
-                                <th>NIM</th>
-                                <th>Nama</th>
-                                <th>Coblos</th>
+                                @foreach($title as $row)
+                                <th>{{$row}}</th>
+                                @endforeach
                             </tr>
                         </thead>
                         <tbody>
