@@ -22,11 +22,6 @@
                     </a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="{{ Request::is('voting') ? '/#dpt' : '#dpt' }}">
-                        Cek DPT
-                    </a>
-                </li>
-                <li class="nav-item mx-2">
                     <a class="nav-link" href="{{ Request::is('voting') ? '/#saran' : '#saran' }}">
                         Saran
                     </a>

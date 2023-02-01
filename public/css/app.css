@@ -13,9 +13,73 @@
   padding: 4rem 2rem;
 }
 
+.fade-in-text {
+  padding: 15px 10px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 15px;
+  background-color: #6D9A86;
+  border: solid #6D9A86;
+  animation: fadeIn 20s;
+  -webkit-animation: fadeIn 20s;
+  -moz-animation: fadeIn 20s;
+  -o-animation: fadeIn 20s;
+  -ms-animation: fadeIn 20s;
+}
+
+.fade-in-text:hover {
+  background-color: #F1E9D6 ;
+  border: solid #6D9A86;
+  color: #6D9A86 ;
+  transition: 200ms;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .paslon {
   width:350px !important;
 }
+
+.fade-in-down {
+  display: none;
+  animation: fadeInDown 2s;
+}
+
+@keyframes fadeInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
 
 .vote-btn {
   background-color: #353C44 !important;
@@ -201,6 +265,22 @@
 }
 .aj {
   margin: auto 20px;
+}
+
+.mulai {
+  padding: 15px 10px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 15px;
+  background-color: #6D9A86;
+  border: solid #6D9A86;
+}
+
+.mulai:hover {
+  background-color: #F1E9D6 ;
+  border: solid #6D9A86;
+  color: #6D9A86 ;
+  transition: 200ms;
 }
 
 

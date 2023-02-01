@@ -13,12 +13,12 @@
         </div>
         {{-- right container --}}
         <div class="box-right vh-100">
-            <h2 id="wwk">
+            <h2 class="fade-in-down" id="mulai">
                 "Pilihlah pilihan dengan kebijakan yang terbaik untuk memastikan bahwa anda membuat keputusan yang
                 tepat, untuk keberlangsungan jangka panjang "
             </h2>
             <a href="/voting" class="choice" id="choice">
-                <h2 class="co" id="mulai">Mulai Memilih</h2>
+                <h2 class="fade-in-down mulai" id="mulai2">Mulai Memilih</h2>
             </a>
         </div>
     </div>
@@ -27,8 +27,12 @@
 @endsection
 @push('scripts')
 <script>
-    $(document).ready(function(){
-        $('#wwk').text('Pilihlah untuk masa depan yang lebih baik, ea ea !');
-    });
+setTimeout(function() {
+    document.getElementById("mulai").style.display = "block";
+}, 1000);
+
+setTimeout(function() {
+    document.getElementById("mulai2").style.display = "block";
+}, 4000);
 </script>
 @endpush
