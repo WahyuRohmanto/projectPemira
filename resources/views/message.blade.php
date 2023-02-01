@@ -25,14 +25,3 @@
 </div>
 <!-- MASIH ADA SCRIPT YANG BELOM DI PANGGIL --->
 @endsection
-@push('scripts')
-<script>
-setTimeout(function() {
-    document.getElementById("mulai").style.display = "block";
-}, 1000);
-
-setTimeout(function() {
-    document.getElementById("mulai2").style.display = "block";
-}, 4000);
-</script>
-@endpush

@@ -26,8 +26,7 @@ $no = 1;
                             @csrf
                             @method('PATCH')
                             <input type="hidden" name="id_kandidat" value="{{ $data_K->id }}">
-                            <button type="submit" onclick="return confirm('Kamu Yakin Atas Pilihan Mu?');"
-                                class="btn vote-btn p-2">VOTE</button>
+                            <button type="submit" class="btn vote-btn p-2">VOTE</button>
                         </form>
                     </div>
                 </div>
@@ -54,5 +53,28 @@ $no = 1;
         @endforeach
     </div>
 </section>
+@push('scripts')
+<script>
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, submit it!'
+    }).then((result) => {
+        if (result.value) {
+            form.submit();
+        }
+    })
+});
+</script>
+@endpush
 @include('partials.footer')
 @endsection
