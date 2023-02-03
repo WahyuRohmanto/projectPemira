@@ -147,8 +147,8 @@
     </div>
 @endsection
 @section('dataTablesJS')
-    <script src="{{asset('js/livecount/livecount.min.js')}}"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{{asset('js/livecount/livecount.min.js')}}"></script>
     <script>
         const progressBarProcessor = async () => {
             const response = await axios.get('/api/live_count');
