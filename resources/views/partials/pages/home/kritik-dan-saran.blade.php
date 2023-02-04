@@ -27,6 +27,7 @@ if (Auth::check()) {
                 <h2 class="text-center text-color fw-bold mb-4">Kritik & Saran</h2>
                 <div class="row">
                     <div class="col-md-6">
+                        <input type="hidden" name="user_id" id="user_id">
                         <label class="mb-2 fw-bold">NIM</label>
                         <input type="number" class="form-control" name="nim" id="nim" onkeyup="searchDataUser()" placeholder="Masukan NIM" required/>
                     </div>
@@ -42,7 +43,7 @@ if (Auth::check()) {
                         <label class="mb-2 fw-bold">Pesan</label>
                         <textarea rows="5" placeholder="Masukan Pesan" name="pesan" class="form-control" required
                         {{ $messageCondition }}>{{ $valueMessage }}</textarea>
-                        <button type="submit" class="btn btn-md bg-color text-white mt-4" {{ $buttonCondition }}>
+                        <button type="submit" class="btn btn-md bg-color text-white mt-4" {{ $buttonCondition }} id="btnKirimSaran" disabled>
                             <i class="fa fa-paper-plane"></i> Kirim
                         </button>
                     </div>
@@ -73,14 +74,13 @@ if (Auth::check()) {
             const nim = $('#nim').val();
             const allUsersResponse = await axios.get('/api/cek-kandidat/' + nim).catch(console.log('is typing'));
             
-            const nameResult = allUsersResponse.data.data.name;
+            let nameResult = allUsersResponse.data.data.name;
+            let idResult = allUsersResponse.data.data.id;
             // const emailResult = allUsersResponse.data.data.email;
-            
-            $("#name").val(nameResult);
-            // if(emailResult){
-            //     $("#email").val(emailResult);
-            // } else {
-            //     $("#email").attr('placeholder','Email tidak terdaftar di sistem');
-            // }
+            if(nameResult){
+                $("#name").val(nameResult);
+                $("#user_id").val(idResult);
+                $('#btnKirimSaran').prop('disabled',false);
+            } 
         }
     </script>
