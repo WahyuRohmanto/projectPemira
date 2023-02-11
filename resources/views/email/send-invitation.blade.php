@@ -11,7 +11,7 @@
 <body>
     <section class="container">
         <div class="d-flex justify-content-center"><img class="img-fluid" src="{{ asset('/img/banner-01.jpg') }}"
-                width="1000" alt=""></div>
+                alt=""></div>
         <br>
         <div class="">
             <h1>Dengan hormat,</h1><br>
