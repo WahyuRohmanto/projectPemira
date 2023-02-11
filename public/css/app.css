@@ -40,6 +40,10 @@
   -ms-animation: fadeIn 20s;
 }
 
+.invite {
+  padding: 0 100rem;
+}
+
 .fade-in-text:hover {
   background-color: #F1E9D6 ;
   border: solid #6D9A86;

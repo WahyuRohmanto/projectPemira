@@ -19,8 +19,9 @@ function urlContains($contains)
     <link rel="icon" href="{{ asset('/img/favicon.ico') }}" />
 
     <!---- Data Table  --->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css" 
-        integrity="sha512-1k7mWiTNoyx2XtmI96o+hdjP8nn0f3Z2N4oF/9ZZRgijyV4omsKOXEnqL1gKQNPy2MTSP9rIEWGcH/CInulptA==" 
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css"
+        integrity="sha512-1k7mWiTNoyx2XtmI96o+hdjP8nn0f3Z2N4oF/9ZZRgijyV4omsKOXEnqL1gKQNPy2MTSP9rIEWGcH/CInulptA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Fonts -->
@@ -49,8 +50,7 @@ function urlContains($contains)
 <body class="min-vh-100">
     <div id="app">
         @include('../partials/preloader')
-
-        @if (!Request::is('login') && !Request::is('register') && !Request::is('message'))
+        @if (!Request::is('login') && !Request::is('register') && !Request::is('message') && !Request::is('test'))
         @include('../partials/navbar')
         @endif
 
@@ -62,7 +62,7 @@ function urlContains($contains)
 			@include('../partials/footer')
 		@endif --}}
     </div>
-    <script src = "{{ asset('js/myjs.js') }}"></script>
+    <script src="{{ asset('js/myjs.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"

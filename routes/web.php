@@ -65,3 +65,7 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/saran', [SaranController::class, 'index']);
     Route::resource('/kandidat', KandidatController::class);
 });
+
+Route::get('test' , function() {
+    return view('test');
+});

@@ -1,43 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    <h1 style="background:#6D9A86;color:white;padding:10px">{{ $mailData['title'] }}</h1>
-    {{-- <p>{{ $mailData['body'] }}</p> --}}
-
-    <p>
-        Dengan hormat,
+    <section class="container">
+        <div class="d-flex justify-content-center"><img class="img-fluid" src="{{ asset('/img/banner-01.jpg') }}"
+                width="1000" alt=""></div>
         <br>
-        Kepada seluruh mahasiswa STT Terpadu Nurul Fikri,
-        <br>
-        <br>
-        Bang Wahyu mengundang Anda untuk menghadiri pemilihan Presma Dan Wapresma yang akan diselenggarakan pada:
-        <br>
-        <br>
-        Hari/Tanggal : Selasa, 20 Januari 2021
-        <br>
-        Waktu : Pukul 14.00-16.00
-        <br>
-        Tempat : Ruang Rapat A, Gedung B, Kampus STT Terpadu Nurul Fikri
-        <br>
-        <br>
-        Pemilihan Presma dan Wapresma merupakan momen penting bagi mahasiswa STT Terpadu Nurul Fikri karena Presma dan Wapresma akan menjadi wakil mahasiswa dalam menyelesaikan masalah-masalah yang dihadapi oleh mahasiswa serta mewakili aspirasi mahasiswa di tingkat universitas maupun di tingkat nasional. 
-        Kami mengharapkan kehadiran Anda pada pemilihan ini dan berharap dapat menghasilkan ketua Presma yang memiliki visi dan misi yang sesuai dengan kebutuhan dan aspirasi mahasiswa Universitas X.
-
-        <br>
-        <br>
-        Salam,
-
-        <br>
-        <br>
-        Panitia Pemilihan Presma Dan Wapresma
-        <br>
-        STT Terpadu Nurul Fikri
-    </p>
+        <div class="">
+            <h1>Dengan hormat,</h1><br>
+            <p>Kami mengundang Anda untuk hadir pada acara pemilihan Presiden dan Wakil Presiden Mahasiswa tahun 2023.
+                Ini
+                adalah kesempatan bagi kami semua untuk memilih pemimpin-pemimpin yang akan memimpin organisasi
+                mahasiswa
+                kita
+                dan memperjuangkan hak dan kepentingan kami selama satu tahun ke depan.</p><br>
+            <p>Waktu: [jam acara] <br>
+                Tempat: [alamat acara]</p><br>
+            <p>Kami sangat mengharapkan kehadiran Anda dan partisipasi Anda dalam memilih pemimpin yang terbaik. Jika
+                Anda
+                membutuhkan informasi lebih lanjut, silakan hubungi kami melalui [nomor telepon atau email].</p><br>
+            <p>Hormat Kami</p><br>
+            <p>Panitia Pemira</p>
+        </div>
+    </section>
 </body>
+
 </html>
