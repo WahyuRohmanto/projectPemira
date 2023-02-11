@@ -83,9 +83,9 @@ active
                 <tbody>
                     @foreach ($saran as $s)
                     <tr>
-                        <td>{{ $s->nim }}</td>
-                        <td>{{ $s->name }}</td>
-                        <td>{{ $s->email }}</td>
+                        <td>{{ $s->user->nim }}</td>
+                        <td>{{ $s->user->name }}</td>
+                        <td>{{ $s->user->email != '' ? '' : '-' }}</td>
                         <td>{{ $s->pesan }}</td>
                     </tr>
                     @endforeach

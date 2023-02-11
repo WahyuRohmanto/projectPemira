@@ -13,8 +13,6 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-8000">Dashboard</h1>
-            {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
         </div>
 
         <!-- Content Row -->
@@ -135,8 +133,8 @@
                         <h6 class="m-0 font-weight-bold text-primary">Grafik Perhitungan</h6>
                     </div>
                     <!-- Card Body -->
-                    <div class="card-body">
-                        <div class="chart-pie pt-4">
+                    <div class="card-body mb-4">
+                        <div class="chart-pie">
                             <canvas id="chartVotingSementara" aria-label="chart voting sementara"></canvas>
                         </div>
                     </div>
@@ -147,15 +145,11 @@
     </div>
 @endsection
 @section('dataTablesJS')
-    <script src="{{asset('js/livecount/livecount.min.js')}}"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{{asset('js/livecount/livecount.min.js')}}"></script>
     <script>
         const progressBarProcessor = async () => {
             const response = await axios.get('/api/live_count');
-        // $.ajax({
-        //     url:'http://localhost:8000/api/live_count',
-        //     method:'GET',
-        //     success: function(response){
                 const kandidatData = response.data.data;
                 let total = 0;
                 const totalData = 
@@ -169,8 +163,6 @@
                     return hasil+"%";
                 });
                 $("#totalLabel").text(total);
-        //     }
-        // });
         }
         progressBarProcessor();
     </script>
