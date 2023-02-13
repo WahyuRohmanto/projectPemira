@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
 Route::get('/', [HomeController::class, 'index']);
+Route::put('/saran', [SaranController::class, 'store'])->name('saran');
 
 #livecount
 Route::get('/live-count', function(){
@@ -49,7 +50,6 @@ Route::middleware('auth')->group(function(){
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/voting', [VoteController::class, 'index']);
     Route::patch('/voting', [VoteController::class, 'vote'])->name('vote');
-    Route::put('/saran', [SaranController::class, 'store'])->name('saran');
     Route::get('/selengkapnya', [VisiMisiController::class, 'selengkapnya'])->name('selengkapnya.selengkapnya');
     Route::get('/message',function(){
         return view('message');
