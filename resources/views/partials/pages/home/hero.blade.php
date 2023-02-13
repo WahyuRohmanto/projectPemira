@@ -9,12 +9,12 @@
                     DPM
                     ( Dewan Perwakilan Mahasiswa ).
                 </p>
-                <div class="row g-3">
+                <!-- <div class="row g-3">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/HXN0GD4Ai3c"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
-                </div>
+                </div> -->
             </div>
             <div class="col-lg-4 order-lg-1 order-0">
                 <img src="{{ asset('/img/image-header-v2.png') }}" class="img-fluid" />
