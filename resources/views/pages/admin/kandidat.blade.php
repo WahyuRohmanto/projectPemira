@@ -36,6 +36,7 @@ $no = 1;
                             <label for="formedit_nim_presma" class="form-label">NIM</label>
                             <input type="text" id="formedit_nim_presma" class="form-control"
                                 onkeyup="searchDataPresma()" name="nim_presma" required>
+                                <input type="hidden" name="presma_id" id="presma_id">
                             {{-- <button class="btn btn-success" type="button">Cek</button> --}}
                         </div>
                         <div class="mb-3 col-md-6">
@@ -50,6 +51,7 @@ $no = 1;
                             <label for="formedit_nim_wapresma" class="form-label">NIM</label>
                             <input type="text" id="formedit_nim_wapresma" onkeyup="searchDataWapresma()"
                                 class="form-control" name="nim_wapresma" required>
+                            <input type="hidden" name="wapresma_id" id="wapresma_id">
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="nama" class="form-label">Nama</label>
@@ -170,7 +172,7 @@ $no = 1;
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold fnt-kandidat">Kandidat {{ $no++ }}</h6>
-                    <div class="dropdown no-arrow">
+                    {{-- <div class="dropdown no-arrow">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -180,10 +182,8 @@ $no = 1;
                             <div class="dropdown-header">Action:</div>
                             <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editKandidat"
                                 onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->presma->nim }}', '{{ $data_K->presma->name }}', '{{ $data_K->visi_misi }}')">Edit</a>
-                            {{-- <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a> --}}
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -199,12 +199,17 @@ $no = 1;
                     <div class="mt-4 text-center small">
                         <span class="">
                             <!-- Button trigger modal -->
-                            <form action="" id="modal-kandidat">
+                            {{-- <form action="" id="modal-kandidat">
                                 <a class="btn-modal" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                     onclick="visiMisi('{!! $data_K->visi !!}','\n', '{!! $data_K->misi !!}')">
                                     Visi & Misi
                                 </a>
-                            </form>
+                            </form> --}}
+                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editKandidat"
+                                onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->presma->id }}', '{{ $data_K->wapresma->id }}', '{{ $data_K->visi_misi }}')">
+                                <i class="fas fa-pencil-alt"></i> 
+                            Edit</a>
+                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                         </span>
                     </div>
                 </div>
@@ -231,11 +236,11 @@ const visiMisi = (visi_misi) => {
 }
 </script>
 <script>
-const editKandidat = (id, presma_id, wapresma_id, visi_misi, image) => {
+const editKandidat = (id, nama_presma, nama_wapresma, presma_nim, wapresma_nim, visi_misi, image) => {
     $("#form-edit").attr('action', '/admin/kandidat/' + id);
     // $("#formedit_nim_presma").val(presma.nim);
     // $("#formedit_nama_presma").val(presma.name);
-    console.log(nama_presma)
+    console.log(presma_id)
     // $("#formedit_nim_wapresma").val(nim);
     // $("#formedit_nama_wapresma").val(nama_wapresma);
     $("#formedit_presma_id").val(presma_id);
