@@ -64,6 +64,7 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/voting', [VotingController::class, 'index']);
     Route::get('/saran', [SaranController::class, 'index']);
     Route::resource('/kandidat', KandidatController::class);
+    ;
 });
 
 Route::get('test' , function() {

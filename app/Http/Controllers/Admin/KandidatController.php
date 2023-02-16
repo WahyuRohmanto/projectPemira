@@ -117,6 +117,8 @@ class KandidatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Kandidat::findOrFail($id);
+        $user->delete();
+        return back()->with('succees' ,'Data berhasil dihapus');
     }
 }

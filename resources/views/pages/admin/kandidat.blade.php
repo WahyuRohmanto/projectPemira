@@ -36,7 +36,7 @@ $no = 1;
                             <label for="formedit_nim_presma" class="form-label">NIM</label>
                             <input type="text" id="formedit_nim_presma" class="form-control"
                                 onkeyup="searchDataPresma()" name="nim_presma" required>
-                                <input type="hidden" name="presma_id" id="presma_id">
+                            <input type="hidden" name="presma_id" id="presma_id">
                             {{-- <button class="btn btn-success" type="button">Cek</button> --}}
                         </div>
                         <div class="mb-3 col-md-6">
@@ -181,46 +181,51 @@ $no = 1;
                             aria-labelledby="dropdownMenuLink">
                             <div class="dropdown-header">Action:</div>
                             <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editKandidat"
-                                onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->presma->nim }}', '{{ $data_K->presma->name }}', '{{ $data_K->visi_misi }}')">Edit</a>
-                        </div>
-                    </div> --}}
+                                onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->presma->nim }}',
+                    '{{ $data_K->presma->name }}', '{{ $data_K->visi_misi }}')">Edit</a>
                 </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="pt-4 pb-2 d-flex flex-row align-items-center justify-content-center">
-                        <img class="img-fluid" style="width:250px;height:300px;object-fit:cover;"
-                            src="{{ $data_K->image == null ? 'https://dummyimage.com/250x300/000/fff' : '/images/kandidat/' . $data_K->image }}"
-                            alt="" loading="lazy" decoding="async">
-                    </div>
-                    <div class="d-flex flex-row align-items-center text-center">
-                        <h3>{{ $data_K->presma->name }} & {{ $data_K->wapresma->name }}</h3>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="mt-4 text-center small">
-                        <span class="">
-                            <!-- Button trigger modal -->
-                            {{-- <form action="" id="modal-kandidat">
+            </div> --}}
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+            <div class="pt-4 pb-2 d-flex flex-row align-items-center justify-content-center">
+                <img class="img-fluid" style="width:250px;height:300px;object-fit:cover;"
+                    src="{{ $data_K->image == null ? 'https://dummyimage.com/250x300/000/fff' : '/images/kandidat/' . $data_K->image }}"
+                    alt="" loading="lazy" decoding="async">
+            </div>
+            <div class="d-flex flex-row align-items-center text-center">
+                <h3>{{ $data_K->presma->name }} & {{ $data_K->wapresma->name }}</h3>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="mt-4 text-center small">
+                <span class="">
+                    <!-- Button trigger modal -->
+                    {{-- <form action="" id="modal-kandidat">
                                 <a class="btn-modal" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                     onclick="visiMisi('{!! $data_K->visi !!}','\n', '{!! $data_K->misi !!}')">
                                     Visi & Misi
                                 </a>
                             </form> --}}
-                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editKandidat"
-                                onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->presma->id }}', '{{ $data_K->wapresma->id }}', '{{ $data_K->visi_misi }}')">
-                                <i class="fas fa-pencil-alt"></i> 
-                            Edit</a>
-                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
-                        </span>
-                    </div>
-                </div>
+                    <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editKandidat"
+                        onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->presma->id }}', '{{ $data_K->wapresma->id }}', '{{ $data_K->visi_misi }}')">
+                        <i class="fas fa-pencil-alt"></i>
+                        Edit</a>
+                    <form action="{{ route('kandidat.destroy', $data_K->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
+                    </form>
+                </span>
             </div>
         </div>
-        @empty
-        <div class="container">
-            <h2 class="text-center">Belum ada data kandidat !</h2>
-        </div>
-        @endforelse
     </div>
+</div>
+@empty
+<div class="container">
+    <h2 class="text-center">Belum ada data kandidat !</h2>
+</div>
+@endforelse
+</div>
 </div>
 @endsection
 
