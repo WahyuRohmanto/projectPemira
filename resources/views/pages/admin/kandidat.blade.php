@@ -97,7 +97,7 @@ $no = 1;
                             <label for="formadd_nim_presma" class="form-label">NIM</label>
                             <input type="text" id="formadd_nim_presma" class="form-control" onkeyup="searchDataPresma()"
                                 name="nim_presma" required>
-                            <input type="hidden" id="presma_id" class="form-control" name="presma_id" required>
+                            <input type="hidden" id="add_presma_id" class="form-control" name="presma_id" required>
                             {{-- <button class="btn btn-success" type="button">Cek</button> --}}
                         </div>
                         <div class="mb-3 col-md-6">
@@ -112,7 +112,7 @@ $no = 1;
                             <label for="formadd_nim_wapresma" class="form-label">NIM</label>
                             <input type="text" id="formadd_nim_wapresma" onkeyup="searchDataWapresma()"
                                 class="form-control" name="nim_wapresma" required>
-                            <input type="hidden" id="wapresma_id" class="form-control" name="wapresma_id" required>
+                            <input type="hidden" id="add_wapresma_id" class="form-control" name="wapresma_id" required>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="nama" class="form-label">Nama</label>
@@ -257,7 +257,7 @@ const searchDataPresma = async () => {
     const allUsersResponse = await axios.get('/api/cek-kandidat/' + nim).catch(console.log('is typing'));
 
     $("#formadd_nama_presma").val(allUsersResponse.data.data.name);
-    $("#presma_id").val(allUsersResponse.data.data.id);
+    $("#add_presma_id").val(allUsersResponse.data.data.id);
 
 }
 const searchDataWapresma = async () => {
@@ -265,7 +265,7 @@ const searchDataWapresma = async () => {
     const allUsersResponse = await axios.get('/api/cek-kandidat/' + nim);
 
     $("#formadd_nama_wapresma").val(allUsersResponse.data.data.name);
-    $("#wapresma_id").val(allUsersResponse.data.data.id);
+    $("#add_wapresma_id").val(allUsersResponse.data.data.id);
 
 }
 const searchWhileEditDataPresma = async () => {
