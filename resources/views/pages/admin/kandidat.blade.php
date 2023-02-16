@@ -35,8 +35,8 @@ $no = 1;
                         <div class="mb-3 col-md-6">
                             <label for="formedit_nim_presma" class="form-label">NIM</label>
                             <input type="text" id="formedit_nim_presma" class="form-control"
-                                onkeyup="searchDataPresma()" name="nim_presma" required>
-                            <input type="hidden" name="presma_id" id="presma_id">
+                                onkeyup="searchWhileEditDataPresma()" name="nim_presma" required>
+                                <input type="hidden" name="presma_id" id="presma_id">
                             {{-- <button class="btn btn-success" type="button">Cek</button> --}}
                         </div>
                         <div class="mb-3 col-md-6">
@@ -97,7 +97,7 @@ $no = 1;
                             <label for="formadd_nim_presma" class="form-label">NIM</label>
                             <input type="text" id="formadd_nim_presma" class="form-control" onkeyup="searchDataPresma()"
                                 name="nim_presma" required>
-                            <input type="hidden" id="add_presma_id" class="form-control" name="presma_id" required>
+                            <input type="hidden" id="presma_id" class="form-control" name="presma_id" required>
                             {{-- <button class="btn btn-success" type="button">Cek</button> --}}
                         </div>
                         <div class="mb-3 col-md-6">
@@ -112,7 +112,7 @@ $no = 1;
                             <label for="formadd_nim_wapresma" class="form-label">NIM</label>
                             <input type="text" id="formadd_nim_wapresma" onkeyup="searchDataWapresma()"
                                 class="form-control" name="nim_wapresma" required>
-                            <input type="hidden" id="add_wapresma_id" class="form-control" name="wapresma_id" required>
+                            <input type="hidden" id="wapresma_id" class="form-control" name="wapresma_id" required>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="nama" class="form-label">Nama</label>
@@ -181,51 +181,43 @@ $no = 1;
                             aria-labelledby="dropdownMenuLink">
                             <div class="dropdown-header">Action:</div>
                             <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editKandidat"
-                                onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->presma->nim }}',
-                    '{{ $data_K->presma->name }}', '{{ $data_K->visi_misi }}')">Edit</a>
+                                onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->presma->nim }}', '{{ $data_K->presma->name }}', '{{ $data_K->visi_misi }}')">Edit</a>
+                        </div>
+                    </div> --}}
                 </div>
-            </div> --}}
-        </div>
-        <!-- Card Body -->
-        <div class="card-body">
-            <div class="pt-4 pb-2 d-flex flex-row align-items-center justify-content-center">
-                <img class="img-fluid" style="width:250px;height:300px;object-fit:cover;"
-                    src="{{ $data_K->image == null ? 'https://dummyimage.com/250x300/000/fff' : '/images/kandidat/' . $data_K->image }}"
-                    alt="" loading="lazy" decoding="async">
-            </div>
-            <div class="d-flex flex-row align-items-center text-center">
-                <h3>{{ $data_K->presma->name }} & {{ $data_K->wapresma->name }}</h3>
-            </div>
-            <div class="dropdown-divider"></div>
-            <div class="mt-4 text-center small">
-                <span class="">
-                    <!-- Button trigger modal -->
-                    {{-- <form action="" id="modal-kandidat">
-                                <a class="btn-modal" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                    onclick="visiMisi('{!! $data_K->visi !!}','\n', '{!! $data_K->misi !!}')">
-                                    Visi & Misi
-                                </a>
-                            </form> --}}
-                    <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editKandidat"
-                        onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->presma->id }}', '{{ $data_K->wapresma->id }}', '{{ $data_K->visi_misi }}')">
-                        <i class="fas fa-pencil-alt"></i>
-                        Edit</a>
-                    <form action="{{ route('kandidat.destroy', $data_K->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
-                    </form>
-                </span>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="pt-4 pb-2 d-flex flex-row align-items-center justify-content-center">
+                        <img class="img-fluid" style="width:250px;height:300px;object-fit:cover;"
+                            src="{{ $data_K->image == null ? 'https://dummyimage.com/250x300/000/fff' : '/images/kandidat/' . $data_K->image }}"
+                            alt="" loading="lazy" decoding="async">
+                    </div>
+                    <div class="d-flex flex-row align-items-center text-center">
+                        <h3>{{ $data_K->presma->name }} & {{ $data_K->wapresma->name }}</h3>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="mt-4 text-center small">
+                        <span class="">
+                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editKandidat"
+                                onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->presma->name }}', '{{ $data_K->presma->nim }}', '{{ $data_K->wapresma->name }}', '{{ $data_K->wapresma->nim }}', {{ $data_K->presma->id }}, {{ $data_K->wapresma->id }}, '{{ $data_K->visi_misi }}', '{{ $data_K->image }}')">
+                                <i class="fas fa-pencil-alt"></i> 
+                            Edit</a>
+                            <form action="{{ route('kandidat.destroy', $data_K->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
+                            </form>
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
+        @empty
+        <div class="container">
+            <h2 class="text-center">Belum ada data kandidat !</h2>
+        </div>
+        @endforelse
     </div>
-</div>
-@empty
-<div class="container">
-    <h2 class="text-center">Belum ada data kandidat !</h2>
-</div>
-@endforelse
-</div>
 </div>
 @endsection
 
@@ -241,8 +233,7 @@ const visiMisi = (visi_misi) => {
 }
 </script>
 <script>
-const editKandidat = (id, nama_presma, nim_presma, nama_wapresma, nim_wapresma, presma_id, wapresma_id, visi_misi,
-    image) => {
+const editKandidat = (id, nama_presma, nim_presma, nama_wapresma, nim_wapresma, presma_id, wapresma_id, visi_misi, image) => {
     $("#form-edit").attr('action', '/admin/kandidat/' + id);
     $("#presma_id").val(presma_id);
     $("#wapresma_id").val(wapresma_id);
@@ -255,34 +246,26 @@ const editKandidat = (id, nama_presma, nim_presma, nama_wapresma, nim_wapresma, 
 const searchDataPresma = async () => {
     const nim = $('#formadd_nim_presma').val();
     const allUsersResponse = await axios.get('/api/cek-kandidat/' + nim).catch(console.log('is typing'));
-
     $("#formadd_nama_presma").val(allUsersResponse.data.data.name);
-    $("#add_presma_id").val(allUsersResponse.data.data.id);
-
+    $("#presma_id").val(allUsersResponse.data.data.id);
 }
 const searchDataWapresma = async () => {
     const nim = $('#formadd_nim_wapresma').val();
     const allUsersResponse = await axios.get('/api/cek-kandidat/' + nim);
-
     $("#formadd_nama_wapresma").val(allUsersResponse.data.data.name);
-    $("#add_wapresma_id").val(allUsersResponse.data.data.id);
-
+    $("#wapresma_id").val(allUsersResponse.data.data.id);
 }
 const searchWhileEditDataPresma = async () => {
     const nim = $('#formedit_nim_presma').val();
     const allUsersResponse = await axios.get('/api/cek-kandidat/' + nim).catch(console.log('is typing'));
-
     $("#formedit_nama_presma").val(allUsersResponse.data.data.name);
     $("#presma_id").val(allUsersResponse.data.data.id);
-
 }
 const searchWhileEditDataWapresma = async () => {
     const nim = $('#formedit_nim_wapresma').val();
     const allUsersResponse = await axios.get('/api/cek-kandidat/' + nim);
-
     $("#formedit_nama_wapresma").val(allUsersResponse.data.data.name);
     $("#wapresma_id").val(allUsersResponse.data.data.id);
-
 }
 </script>
 @endsection
