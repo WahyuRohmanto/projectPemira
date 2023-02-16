@@ -49,7 +49,7 @@ $no = 1;
                         <label for="" class="form-label fw-bold">Wapresma</label>
                         <div class="mb-3 col-md-6">
                             <label for="formedit_nim_wapresma" class="form-label">NIM</label>
-                            <input type="text" id="formedit_nim_wapresma" onkeyup="searchDataWapresma()"
+                            <input type="text" id="formedit_nim_wapresma" onkeyup="searchWhileEditDataWapresma()"
                                 class="form-control" name="nim_wapresma" required>
                             <input type="hidden" name="wapresma_id" id="wapresma_id">
                         </div>
@@ -68,7 +68,7 @@ $no = 1;
 
                     <div class="mb-3">
                         <label for="image" class="form-label">Foto</label>
-                        <input type="file" id="image-kandidat" class="form-control" name="image">
+                        <input type="file" id="formedit_image" class="form-control" name="image">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -241,16 +241,15 @@ const visiMisi = (visi_misi) => {
 }
 </script>
 <script>
-const editKandidat = (id, nama_presma, nama_wapresma, presma_nim, wapresma_nim, visi_misi, image) => {
+const editKandidat = (id, nama_presma, nim_presma, nama_wapresma, nim_wapresma, presma_id, wapresma_id, visi_misi,
+    image) => {
     $("#form-edit").attr('action', '/admin/kandidat/' + id);
-    // $("#formedit_nim_presma").val(presma.nim);
-    // $("#formedit_nama_presma").val(presma.name);
-    console.log(presma_id)
-    // $("#formedit_nim_wapresma").val(nim);
-    // $("#formedit_nama_wapresma").val(nama_wapresma);
-    $("#formedit_presma_id").val(presma_id);
-    $("#formedit_wapresma_id").val(wapresma_id);
-    // $("#visi_misi-kandidat").val(visi_misi);
+    $("#presma_id").val(presma_id);
+    $("#wapresma_id").val(wapresma_id);
+    $("#formedit_nim_presma").val(nim_presma);
+    $("#formedit_nim_wapresma").val(nim_wapresma);
+    $("#formedit_nama_presma").val(nama_presma);
+    $("#formedit_nama_wapresma").val(nama_wapresma);
     $('#summernote_edit').summernote('code', visi_misi);
 }
 const searchDataPresma = async () => {
@@ -266,6 +265,22 @@ const searchDataWapresma = async () => {
     const allUsersResponse = await axios.get('/api/cek-kandidat/' + nim);
 
     $("#formadd_nama_wapresma").val(allUsersResponse.data.data.name);
+    $("#wapresma_id").val(allUsersResponse.data.data.id);
+
+}
+const searchWhileEditDataPresma = async () => {
+    const nim = $('#formedit_nim_presma').val();
+    const allUsersResponse = await axios.get('/api/cek-kandidat/' + nim).catch(console.log('is typing'));
+
+    $("#formedit_nama_presma").val(allUsersResponse.data.data.name);
+    $("#presma_id").val(allUsersResponse.data.data.id);
+
+}
+const searchWhileEditDataWapresma = async () => {
+    const nim = $('#formedit_nim_wapresma').val();
+    const allUsersResponse = await axios.get('/api/cek-kandidat/' + nim);
+
+    $("#formedit_nama_wapresma").val(allUsersResponse.data.data.name);
     $("#wapresma_id").val(allUsersResponse.data.data.id);
 
 }
