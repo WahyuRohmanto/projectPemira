@@ -36,7 +36,7 @@ $no = 1;
                             <label for="formedit_nim_presma" class="form-label">NIM</label>
                             <input type="text" id="formedit_nim_presma" class="form-control"
                                 onkeyup="searchWhileEditDataPresma()" name="nim_presma" required>
-                                <input type="hidden" name="presma_id" id="presma_id">
+                                <input type="hidden" name="edit_presma_id" id="presma_id">
                             {{-- <button class="btn btn-success" type="button">Cek</button> --}}
                         </div>
                         <div class="mb-3 col-md-6">
@@ -51,7 +51,7 @@ $no = 1;
                             <label for="formedit_nim_wapresma" class="form-label">NIM</label>
                             <input type="text" id="formedit_nim_wapresma" onkeyup="searchWhileEditDataWapresma()"
                                 class="form-control" name="nim_wapresma" required>
-                            <input type="hidden" name="wapresma_id" id="wapresma_id">
+                            <input type="hidden" name="wapresma_id" id="edit_wapresma_id">
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="nama" class="form-label">Nama</label>
@@ -235,8 +235,8 @@ const visiMisi = (visi_misi) => {
 <script>
 const editKandidat = (id, nama_presma, nim_presma, nama_wapresma, nim_wapresma, presma_id, wapresma_id, visi_misi, image) => {
     $("#form-edit").attr('action', '/admin/kandidat/' + id);
-    $("#presma_id").val(presma_id);
-    $("#wapresma_id").val(wapresma_id);
+    $("#edit_presma_id").val(presma_id);
+    $("#edit_wapresma_id").val(wapresma_id);
     $("#formedit_nim_presma").val(nim_presma);
     $("#formedit_nim_wapresma").val(nim_wapresma);
     $("#formedit_nama_presma").val(nama_presma);
