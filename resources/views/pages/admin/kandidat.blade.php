@@ -36,7 +36,7 @@ $no = 1;
                             <label for="formedit_nim_presma" class="form-label">NIM</label>
                             <input type="text" id="formedit_nim_presma" class="form-control"
                                 onkeyup="searchWhileEditDataPresma()" name="nim_presma" required>
-                                <input type="hidden" name="edit_presma_id" id="presma_id">
+                                <input type="hidden" name="presma_id" id="edit_presma_id">
                             {{-- <button class="btn btn-success" type="button">Cek</button> --}}
                         </div>
                         <div class="mb-3 col-md-6">
@@ -246,6 +246,7 @@ const editKandidat = (id, nama_presma, nim_presma, nama_wapresma, nim_wapresma, 
 const searchDataPresma = async () => {
     const nim = $('#formadd_nim_presma').val();
     const allUsersResponse = await axios.get('/api/cek-kandidat/' + nim).catch(console.log('is typing'));
+    console.log(allUsersResponse.data.data.id)
     $("#formadd_nama_presma").val(allUsersResponse.data.data.name);
     $("#presma_id").val(allUsersResponse.data.data.id);
 }
