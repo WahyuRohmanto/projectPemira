@@ -205,7 +205,7 @@ $no = 1;
                             <form action="{{ route('kandidat.destroy', $data_K->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger"><i class="fas fa-trash" onclick="alert('Menghapus data ini memungkinkan terjadinya error, yakin ingin menghapus ?')"></i> Hapus</button>
+                                <button class="btn btn-danger"><i class="fas fa-trash" onclick="return onsubmit('Menghapus data ini memungkinkan terjadinya error, yakin ingin menghapus ?')"></i> Hapus</button>
                             </form>
                         </span>
                     </div>
