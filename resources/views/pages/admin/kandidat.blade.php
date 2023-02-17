@@ -202,10 +202,10 @@ $no = 1;
                                 onclick="editKandidat({{ $data_K->id }}, '{{ $data_K->presma->name }}', '{{ $data_K->presma->nim }}', '{{ $data_K->wapresma->name }}', '{{ $data_K->wapresma->nim }}', {{ $data_K->presma->id }}, {{ $data_K->wapresma->id }}, '{{ $data_K->visi_misi }}', '{{ $data_K->image }}')">
                                 <i class="fas fa-pencil-alt"></i> 
                             Edit</a>
-                            <form action="{{ route('kandidat.destroy', $data_K->id) }}" method="POST">
+                            <form onsubmit="return confirm('Menghapus data ini memungkinkan terjadinya error, yakin ingin menghapus ?')" action="{{ route('kandidat.destroy', $data_K->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger"><i class="fas fa-trash" onclick="return onsubmit('Menghapus data ini memungkinkan terjadinya error, yakin ingin menghapus ?')"></i> Hapus</button>
+                                <button class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
                             </form>
                         </span>
                     </div>
