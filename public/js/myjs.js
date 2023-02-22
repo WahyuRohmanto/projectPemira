@@ -26,3 +26,7 @@ setTimeout(function() {
 setTimeout(function() {
   document.getElementById("mulai2").style.display = "block";
 }, 4000);
+
+$(document).ready(function() {
+    $("#pass").html("Ini adalah teks baru menggunakan html()"); // Mengganti isi dengan html()
+  });

@@ -70,3 +70,8 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
 Route::get('test' , function() {
     return view('test');
 });
+
+
+Route::get('cek' , function() {
+    return view('cekPass');
+});
