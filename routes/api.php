@@ -4,6 +4,7 @@ use App\Http\Controllers\DPTController;
 use App\Http\Controllers\RegisFromNimController;
 use App\Http\Controllers\Admin\VotingController;
 use App\Http\Controllers\LiveCountController;
+use App\Http\Controllers\GetUserPasswordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,4 @@ Route::put('/voting', [VotingController::class, 'vote'])->name('voting');
 Route::get('/live_count', [LiveCountController::class, 'liveCount'])->name('live-count');
 Route::post('/cekDPT', [DPTController::class, 'inPdex'])->name('cek-dpt');
 Route::get('/cek-kandidat/{nim}', [DPTController::class, 'cekKandidat'])->name('cek-kandidat');
+Route::get('/get_user_password/{nim}', [GetUserPasswordController::class, 'getUserPassword']);
