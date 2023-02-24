@@ -121,6 +121,11 @@
 
 }
 
+.cekContainer {
+  background-color: #353C44;
+  height: 100vh;
+}
+
 .box-left{
   display: flex;
 }
