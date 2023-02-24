@@ -46,6 +46,14 @@
             <span>Kritik Saran</span></a>
     </li>
 
+    <li class="nav-item @yield('active-saran')">
+        <a class="nav-link" href="/admin/cek">
+            <i class="bi bi-search"></i>
+            <span>Search Password</span></a>
+    </li>
+
+
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block mt-2">
 
