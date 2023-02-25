@@ -16,6 +16,7 @@
 
 @endsection
 @push('scripts')
+<script src="{{ asset('js/myjs.js') }}"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
 const cekUserPassword = async () => {

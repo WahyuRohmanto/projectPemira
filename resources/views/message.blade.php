@@ -25,3 +25,6 @@
 </div>
 <!-- MASIH ADA SCRIPT YANG BELOM DI PANGGIL --->
 @endsection
+@push('scripts')
+<script src="{{ asset('js/myjs.js') }}"></script>
+@endpush
