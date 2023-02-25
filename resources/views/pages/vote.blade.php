@@ -8,6 +8,7 @@ $no = 1;
 <section class="container py-5 px-3 d-flex justify-content-center flex-column" width="100">
 
     <div class="row d-flex justify-content-center pl-5 rowVote">
+        <?php $i = 1; ?>
         @foreach ($kandidat as $data_K)
         <div class="col-md-6 aj">
             <div class="p-1"><img class="rounded foto paslon" loading="lazy" decoding="async"
@@ -18,7 +19,7 @@ $no = 1;
                     <h5 class="card-title">{{$data_K->presma->name}} & {{$data_K->wapresma->name}}</h5>
                     <div class="d-flex justify-content-center">
                         <button type="button" class="btn btn-primary visi-btn visiMisi p-2" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
+                            data-bs-target="#exampleModal{{$i}}">
                             Visi & Misi
                         </button>
 
@@ -31,7 +32,7 @@ $no = 1;
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="exampleModal{{$i++}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content ">
