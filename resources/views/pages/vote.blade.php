@@ -11,7 +11,7 @@ $no = 1;
         @foreach ($kandidat as $data_K)
         <div class="col-md-6 aj">
             <div class="p-1"><img class="rounded foto paslon" loading="lazy" decoding="async"
-                    src="{{ asset('images/kandidat/kandidat1.png') }}" alt="">
+                    src="/images/kandidat/{{$data_K->image}}" alt="">
             </div>
             <div class="card text-center mb-3 card-name" style="border-radius: 20px; opacity: 100%">
                 <div class="card-body card-name2">
