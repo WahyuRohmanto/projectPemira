@@ -16,7 +16,7 @@
             <div class="box-login br-radius">
                 <p class="fs-title">KPR STTNF 2023</p>
                 <a href="/">
-                    <img src="{{ asset('/img/logo-v2.png') }}" alt="" class="logo-v2" height="200" />
+                    <img loading="lazy" src="{{ asset('/img/logo-v2.png') }}" alt="" class="logo-v2" height="200" />
                 </a>
                 <p class="fs-label f-color mt-4">Login</p>
 
@@ -26,7 +26,7 @@
                     <div class="pesan"></div>
                     <div class="mb-3">
                         <label for="nim" class="form-label f-color">NIM</label>
-                        <input name="nim" required id="nim" pattern="[0-9]{10}" type="text" class="bg-input" />
+                        <input name="nim" autocomplete="off" required id="nim" pattern="[0-9]{10}" value="{{old('nim')}}" type="text" class="bg-input" />
                     </div>
                     <div class="mb-3 mt-2">
                         <label for="userpassword" class="form-label f-color">Password</label>

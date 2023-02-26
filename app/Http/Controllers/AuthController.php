@@ -9,9 +9,17 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session as FacadesSession;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\MailController;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class AuthController extends Controller
 {
+	use AuthenticatesUsers;
+
+    public function username()
+    {
+        return 'nim';
+    }
+
 	public function login()
 	{
 		return view('pages.login');
@@ -28,28 +36,24 @@ class AuthController extends Controller
 	
 	public function auth(Request $request)
 	{
-		$jikaWaktuSesuai = strtotime("now") < strtotime("2023-01-01 06:00:00") || strtotime("now") > strtotime("2023-02-26 19:00:00");
-		if ($request->input('nim') !== '9710101011' ) {
+		$jikaWaktuSesuai = strtotime("now") < strtotime("2023-01-01 06:00:00") || strtotime("now") > strtotime("2023-02-27 19:00:00");
+		if ($request->nim !== '9710101011' ) {
 			if ($jikaWaktuSesuai) {
-				Alert::error('Gagal', 'Sesi Voting diTutup');
+				Alert::error('Gagal', 'Sesi Voting ditutup');
 				return redirect()->to('/login');
 			}
 		}
 		
-		$nim = $request->nim;
-		$user =  User::where('nim', $nim)->first();
-		$password = Hash::check($request->password, $user->password);
-
-		if ($user && $password == 1) {
-			Auth::login($user, true);
+		$userData = $request->only(['nim','password']);
+		if (Auth::attempt($userData)) {
 			if (Auth::user()->hasRole('admin')) {
 				return redirect()->to('/admin');
 			} else {
-				return redirect()->to('/message');
+				return redirect()->to('/voting');
 			}
 		} else {
 			Alert::error('Gagal', 'NIM & Password Salah');
-			return redirect()->to('/login');
+			return redirect()->to('/login')->withInput();
 		}
 	}
 }
