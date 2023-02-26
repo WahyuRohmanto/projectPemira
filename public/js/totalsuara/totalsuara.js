@@ -1,12 +1,1 @@
-const countUserHasVote = async () => {
-    const response = await axios.get('/api/live_count');
-    let kandidatData = response.data.data;
-    let i = 1;
-    kandidatData.forEach(response => {
-        $('#myTable tr:last').after(
-            `<tr><td>${i++}</td><td>${response.nama_kandidat}</td><td>${response.jumlah_suara}</td></tr>`
-        );
-    });
-    
-}
-countUserHasVote();
+const countUserHasVote=async()=>{let t=(await axios.get("/api/live_count")).data.data,a=1;t.forEach((t=>{$("#myTable tr:last").after(`<tr><td>${a++}</td><td>${t.nama_kandidat}</td><td>${t.jumlah_suara}</td></tr>`)}))};countUserHasVote();
