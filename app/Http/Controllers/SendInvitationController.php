@@ -18,11 +18,13 @@ class SendInvitationController extends Controller
 	
 	function sendInvitation() 
 	{
-		$userData = User::limit(3)->get();
+		$userData = User::limit(2)->get();
 		foreach ($userData as $key => $user) {
 			$mailData = [
 				'title' => "Pemira STTNF 2023",
-				// 'body' => "Username",
+				'username' => $user->name,
+				'nim' => $user->nim,
+				'password' => $user->password_noHash,
 			];
 			Mail::to($user->email)->send(new SendInvitationToUserMail($mailData));
 		}
