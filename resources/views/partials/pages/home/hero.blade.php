@@ -17,7 +17,7 @@
                 </div> -->
             </div>
             <div class="col-lg-4 order-lg-1 order-0">
-                <img src="{{ asset('/img/image-header-v2.png') }}" class="img-fluid" />
+                <img loading="lazy" src="{{ asset('/img/image-header-v2.png') }}" class="img-fluid" />
             </div>
         </div>
     </div>

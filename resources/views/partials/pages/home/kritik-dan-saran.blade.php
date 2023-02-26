@@ -21,7 +21,7 @@
   <div class="container" id="saran">
     <div class="row">
       <div class="col-md-4">
-        <img src="{{ asset('/img/Texting-amico.png') }}" class="w-100" />
+        <img loading="lazy" src="{{ asset('/img/Texting-amico.png') }}" class="w-100" />
       </div>
       <div class="col-md-8">
         <h2 class="text-center text-color fw-bold mb-4">Kritik & Saran</h2>

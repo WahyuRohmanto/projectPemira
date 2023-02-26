@@ -1,7 +1,7 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white">
     <div class="container">
         <a class="navbar-brand text-color" href="{{ Request::is('voting') ? '/' : '#' }}">
-            <img src="{{ asset('/img/logo-v2.png') }}" class="logo-icon" />
+            <img loading="lazy" src="{{ asset('/img/logo-v2.png') }}" class="logo-icon" />
             <span class="mx-2 mt-5 fw-bold">PEMIRA</span>
         </a>
 

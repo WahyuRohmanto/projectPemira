@@ -24,7 +24,7 @@
             </ol>
         </div>
         <div class="col-md-6">
-            <img src="{{ asset('/img/terms.svg') }}" class="w-100" />
+            <img loading="lazy" src="{{ asset('/img/terms.svg') }}" class="w-100" />
         </div>
     </div>
 </div>
