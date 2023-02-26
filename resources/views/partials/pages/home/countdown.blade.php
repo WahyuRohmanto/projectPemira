@@ -6,7 +6,7 @@
     </svg>
     <div class="d-grid bg-color" style="z-index: 1">
         <div class="container">
-            <p class="fs-1 rounded-pill text-center p-3 m-auto px-5" id="demo"></p>
+            <p class="fs-1 rounded-pill text-center p-3 m-auto px-5 fw-bold" id="demo"></p>
             <p class="fs-1 text-center mt-4 text-white"><i class="fa fa-paper-plane"></i> Menuju Voting</p>
         </div>
     </div>
@@ -19,7 +19,7 @@
 @push('scripts')
 <script>
 // Set the date we're counting down to
-let countDownDate = new Date("Mar 23, 2022 06:00:00").getTime();
+let countDownDate = new Date("Mar 1, 2023 06:00:00").getTime();
 
 // Update the count down every 1 second
 let x = setInterval(function() {
@@ -37,16 +37,16 @@ let x = setInterval(function() {
 
     // Output the result in an element with id="demo"
     document.getElementById("demo").innerHTML =
-        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        days + " hari " + hours + " jam " + minutes + " menit " + seconds + " detik ";
 
     // If the count down is over, write some text
     if (distance < 0) {
         clearInterval(x);
         document.getElementById("demo").innerHTML = "Sesi Voting Sudah di Mulai ";
-        let limitTime = new Date("Mar 23, 2022 19:00:00").getTime()
+        let limitTime = new Date("Mar 2, 2023 19:00:00").getTime()
         if (now > limitTime) {
             clearInterval(x);
-            document.getElementById("demo").innerHTML = "Sesi Voting Sudah di Tutup";
+            document.getElementById("demo").innerHTML = "Sesi Voting Sudah Di Tutup";
         }
     }
 }, 1000);
