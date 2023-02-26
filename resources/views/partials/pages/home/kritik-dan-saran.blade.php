@@ -27,7 +27,7 @@
         <h2 class="text-center text-color fw-bold mb-4">Kritik & Saran</h2>
         <div class="row">
           <div class="col-md-6">
-            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+            <input type="hidden" name="user_id" value="{{ Auth::check() ? Auth::user()->id : '' }}">
             <label class="mb-2 fw-bold">Nama</label>
             <input type="text" class="form-control" name="name" placeholder="Masukan Nama Lengkap"
               required readonly value="{{ Auth::check() ? Auth::user()->name : '' }}" />
