@@ -36,7 +36,7 @@ class AuthController extends Controller
 	
 	public function auth(Request $request)
 	{
-		$jikaWaktuSesuai = strtotime("now") < strtotime("2023-01-01 06:00:00") || strtotime("now") > strtotime("2023-02-27 19:00:00");
+		$jikaWaktuSesuai = strtotime("now") < strtotime("2023-02-12 06:00:00") || strtotime("now") > strtotime("2023-03-03 19:00:00");
 		if ($request->nim !== '9710101011' ) {
 			if ($jikaWaktuSesuai) {
 				Alert::error('Gagal', 'Sesi Voting ditutup');
