@@ -36,12 +36,12 @@
                 <tr>
                     <td>Waktu</td>
                     <td> : </td>
-                    <td>07.00 - 15.00 WIB</td>
+                    <td>09.00 - 16.00 WIB</td>
                 </tr>
                 <tr>
                     <td>Tempat</td>
                     <td> : </td>
-                    <td>Kampus B, Ruang Auditorium STT Terpadu Nurul Fikri</td>
+                    <td>Rooftop (Lantai 5) Kampus A, STT Terpadu Nurul Fikri</td>
                 </tr>
             </table>
             <p style="text-align:justify;line-height:1.6;text-indent:45px">Ini
@@ -49,10 +49,11 @@
                 dan memperjuangkan hak dan kepentingan mahasiswa STT Terpadu Nurul Fikri selama satu tahun ke depan. Kami sangat mengharapkan kehadiran dan partisipasi Saudara {{ $mailData['username']}} dalam memilih pemimpin yang terbaik. Jika
                 Anda membutuhkan informasi lebih lanjut, silakan hubungi kami melalui 
                 <a href="https://api.whatsapp.com/send/?phone=6281511048590&text&type=phone_number&app_absent=0" target="_blank"> 6281511048590</a></p>
-            <p>Informasi Login untuk sistem voting : <br> 
+            <p>Untuk melakukan Login di sistem voting, berikut adalah username dan password anda : <br> 
             <span style="font-weight:bold">Username : {{$mailData['nim']}}</span><br> 
             <span style="font-weight:bold">Password : {{$mailData['password']}}</span> <br>
             *Mohon untuk tidak menyebarkan informasi ini kepada siapapun</p><br>
+            <p>Diakses melalui alamat web resmi <a href="https://pemira.nurulfikri.ac.id/login">KPR STTNF</a></p>
             <p style="text-align:justify;line-height:1.6">Hormat Kami,<br>KPR STTNF</p>
         </div>
     </section>

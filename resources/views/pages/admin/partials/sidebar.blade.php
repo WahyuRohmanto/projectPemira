@@ -46,10 +46,16 @@
             <span>Kritik Saran</span></a>
     </li>
 
-    <li class="nav-item @yield('active-saran')">
+    <li class="nav-item">
         <a class="nav-link" href="/admin/cek">
             <i class="bi bi-search"></i>
             <span>Search Password</span></a>
+    </li>    
+    
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/register">
+            <i class="bi bi-people"></i>
+            <span>Registrasi User</span></a>
     </li>
 
 

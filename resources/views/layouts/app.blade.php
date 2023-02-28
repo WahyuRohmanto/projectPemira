@@ -51,7 +51,7 @@ function urlContains($contains)
     <div id="app">
         @include('../partials/preloader')
         @if (!Request::is('login') && !Request::is('register') && !Request::is('message') && !Request::is('test') &&
-        !Request::is('admin/cek'))
+        !Request::is('admin/cek') && !Request::is('admin/register'))
         @include('../partials/navbar')
         @endif
 
