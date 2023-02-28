@@ -15,9 +15,9 @@
         <div class="box-right vh-100">
             <div class="box-login br-radius">
                 <p class="fs-title">REGISTRASI ULANG</p>
-                <a href="/">
+                {{-- <a href="/">
                     <img loading="lazy" src="{{ asset('/img/logo-v2.png') }}" alt="" class="logo-v2" height="150" />
-                </a>
+                </a> --}}
 				{{-- <h3>REGISTRASI ULANG</h3> --}}
 				<p class="mt-2">Masukkan Nim dan Email Aktif anda<br> untuk melakukan registrasi
 					Ulang</p>

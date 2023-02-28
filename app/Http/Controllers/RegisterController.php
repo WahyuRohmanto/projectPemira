@@ -58,10 +58,6 @@ class RegisterController extends Controller
                     'password' => $data->password_noHash
                 ];
                 Mail::to($request->email)->send(new RegisMail($details));
-                User::where('nim', $request->nim)->update([
-                    'email' => $request->email, 
-                    'status' => 1, 
-                ]);
                 Alert::success('Sukses','Username dan password berhasil dikirim, silakan cek email kamu !');
                 return redirect()->to('/admin/register')->with('success','Register berhasil, silakan cek email anda');
             } else {
