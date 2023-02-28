@@ -5,6 +5,17 @@
             <div class="col-lg-2 text-center step d-flex align-items-center p-0">
                 <div class="card step-guide border-0">
                     <div class="card-body p-0">
+                        <img src="{{ asset('/img/register.svg') }}" class="img-guide w-100" />
+                        <h4 class="text-color mt-2 fw-bold">Register</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1 d-flex align-items-center">
+                <div class="foot-path"></div>
+            </div>
+            <div class="col-lg-2 text-center step d-flex align-items-center p-0">
+                <div class="card step-guide border-0">
+                    <div class="card-body p-0">
                         <img src="{{ asset('/img/Mobile-login.svg') }}" class="img-guide w-100" />
                         <h4 class="text-color mt-2 fw-bold">Login</h4>
                     </div>
