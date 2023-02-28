@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisFromNimController;
 use App\Http\Controllers\Admin\VotingController;
 use App\Http\Controllers\LiveCountController;
 use App\Http\Controllers\GetUserPasswordController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,12 +20,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/checkNim', [RegisFromNimController::class, 'check'])->name('check-nim');
-// Route::post('/login', [RegisFromNimController::class, 'login'])->name('login');
-Route::post('/regis', [RegisFromNimController::class, 'regis'])->name('regis');
-Route::get('/countRegis', [RegisFromNimController::class, 'countRegis'])->name('count-regis');
+Route::post('/checkNim', [RegisterController::class, 'check'])->name('check-nim');
 Route::put('/voting', [VotingController::class, 'vote'])->name('voting');
-// Route::get('/countVoting', [VotingController::class, 'countVoting'])->name('count-voting');
 Route::get('/live_count', [LiveCountController::class, 'liveCount'])->name('live-count');
 Route::post('/cekDPT', [DPTController::class, 'inPdex'])->name('cek-dpt');
 Route::get('/cek-kandidat/{nim}', [DPTController::class, 'cekKandidat'])->name('cek-kandidat');

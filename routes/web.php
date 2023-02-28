@@ -7,6 +7,7 @@ use App\Http\Controllers\{
     SendInvitationController,
     LiveCountController,
     VisiMisiController,
+    RegisterController,
 };
 use App\Http\Controllers\Admin\{
     AdminController, 
@@ -67,6 +68,8 @@ Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('cek' , function() {
         return view('cekPass');
     });
+    Route::get('/register', [RegisterController::class, 'index'])->name('register');
+    Route::post('/regis', [RegisterController::class, 'register'])->name('registerUser');
     ;
 });
 
